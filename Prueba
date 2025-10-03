@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portafolio – Isaac Jiménez</title>
+  <meta name="description" content="Portafolio de Isaac Jiménez: desarrollador full stack.">
+  <!-- Colores de marca -->
+  <style>
+    :root{
+      --primary:#4C6CB3;   /* 60% */
+      --secondary:#4C9FB3; /* 30% */
+      --accent:#4CB393;    /* 10% */
+      --text:#0F172A;
+      --muted:#475569;
+      --bg:#FFFFFF;
+      --card:#F8FAFC;
+      --ring: 24px;
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+    a{color:var(--primary); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1000px; margin:auto; padding:24px}
+    header{
+      background: radial-gradient(1200px 400px at 50% -50%, var(--secondary) 0%, var(--primary) 60%, #2b3f7e 100%);
+      color:#fff; padding:56px 24px 72px; position:relative; overflow:hidden;
+    }
+    header .container{position:relative; z-index:1}
+    .brand{
+      display:flex; align-items:center; gap:20px;
+    }
+    /* LOGO (SVG) */
+    .logo{
+      width:92px; height:92px; border-radius:24px; display:grid; place-items:center;
+      background: conic-gradient(from 220deg, var(--primary), var(--secondary), var(--accent));
+      box-shadow: 0 8px 30px rgba(0,0,0,.25), inset 0 0 0 6px rgba(255,255,255,.2);
+    }
+    .logo svg{width:58px; height:58px}
+    .title{margin:4px 0 6px; font-size:clamp(26px, 4vw, 36px); font-weight:800}
+    .slogan{margin:0; color:#E2E8F0; font-size:clamp(14px, 2.6vw, 16px)}
+    .chip{
+      display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25); color:#fff; font-weight:600; font-size:13px
+    }
+    .card{
+      background:var(--card); border:1px solid #e5e7eb; border-radius:var(--radius); padding:22px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+    }
+    .grid{display:grid; gap:18px}
+    @media (min-width:880px){ .grid{grid-template-columns: 1.2fr .8fr} }
+    h2{margin:0 0 12px; font-size:20px}
+    p{line-height:1.6; color:var(--muted); margin:0}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px;
+      font-weight:700; border:none; cursor:pointer;
+    }
+    .btn-primary{background:var(--primary); color:#fff}
+    .btn-primary:hover{filter:brightness(.95)}
+    .btn-ghost{background:#fff; color:var(--primary); border:1px solid #e5e7eb}
+    .links{display:grid; gap:12px}
+    .links a{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px; border-radius:14px; border:1px solid #e5e7eb; background:#fff;
+      transition:transform .06s ease;
+    }
+    .links a:hover{transform:translateY(-2px)}
+    .badge{background:var(--accent); color:#fff; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700}
+    footer{padding:30px 24px; color:#64748b; font-size:14px}
+    .stack{display:flex; gap:10px; flex-wrap:wrap}
+    .tag{padding:8px 12px; border-radius:999px; background: #eaf4fb; color:#0b3852; border:1px solid #d7e9f4}
+    .accent{color:var(--accent)}
+    .callout{
+      margin-top:-48px; position:relative;
+    }
+  </style>
+
+  <!-- Favicon: usa el mismo SVG del logo para cumplir el requisito -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <span class="chip">Portafolio • 2025</span>
+      <div class="brand" style="margin-top:14px">
+        <div class="logo" aria-label="Logo de Isaac">
+          <!-- LOGO SVG VECTORIAL (deriva también el favicon.svg) -->
+          <svg viewBox="0 0 64 64" role="img" aria-label="IJ monograma">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+                <stop offset="1" stop-color="#E2E8F0" stop-opacity=".75"/>
+              </linearGradient>
+            </defs>
+            <rect x="10" y="10" width="44" height="44" rx="12" fill="url(#g1)" opacity=".22"/>
+            <path d="M22 22h6v20h-6zM36 22h6v16a4 4 0 0 1-4 4h-6v-6h4z" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="title">Isaac Jiménez</h1>
+          <p class="slogan">Construyo software útil y seguro</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tarjeta principal pegada al header -->
+    <div class="callout">
+      <div class="card">
+        <div class="grid">
+          <section>
+            <h2>Perfil profesional</h2>
+            <p>
+              Desarrollador <strong class="accent">full stack</strong> orientado a resultados. Diseño soluciones
+              <strong>seguras</strong>, <strong>escalables</strong> y fáciles de usar. Me apasiona conectar
+              backend sólido con interfaces limpias y accesibles.
+            </p>
+            <div class="stack" style="margin-top:14px">
+              <span class="tag">Java • Spring Boot</span>
+              <span class="tag">React • Tailwind</span>
+              <span class="tag">SQL Server / MySQL</span>
+              <span class="tag">Azure • CI/CD</span>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:18px">
+              <a class="btn btn-primary" href="mailto:tu-correo@ejemplo.com">Contactar</a>
+              <a class="btn btn-ghost" href="#enlaces">Ver enlaces</a>
+            </div>
+          </section>
+
+          <aside>
+            <h2>Identidad visual</h2>
+            <p>
+              Paleta <strong>60-30-10</strong>: primario <code>#4C6CB3</code>, secundario <code>#4C9FB3</code>,
+              acento <code>#4CB393</code>. Tipografía del sistema para rendimiento y legibilidad.
+            </p>
+            <div style="display:flex; gap:10px; margin-top:12px">
+              <div style="width:64px;height:64px;border-radius:12px;background:#4C6CB3"></div>
+              <div style="width:64px;height:64px;border-radius:12px;background:#4C9FB3"></div>
+              <div style="width:64px;height:64px;border-radius:12px;background:#4CB393"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <section id="enlaces" class="card" style="margin-top:18px">
+      <h2>Enlaces</h2>
+      <div class="links" style="margin-top:8px">
+        <a href="https://www.linkedin.com/in/tu-usuario/" target="_blank" rel="noopener">
+          <span>LinkedIn</span><span class="badge">Perfil</span>
+        </a>
+        <a href="https://github.com/isaacjicar" target="_blank" rel="noopener">
+          <span>GitHub</span><span class="badge">Repos</span>
+        </a>
+        <a href="https://isaacjicar.github.io/" target="_blank" rel="noopener">
+          <span>Web del portafolio</span><span class="badge">Live</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>Misión, visión y valores</h2>
+      <p><strong>Misión:</strong> Desarrollar soluciones tecnológicas seguras y escalables que faciliten la vida de las personas y optimicen procesos.</p>
+      <p style="margin-top:8px"><strong>Visión:</strong> Ser un referente en ingeniería de software por liderazgo, calidad y entrega confiable.</p>
+      <p style="margin-top:8px"><strong>Valores:</strong> Respeto, puntualidad, creatividad y aprendizaje continuo.</p>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    © <span id="y"></span> Isaac Jiménez • <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a> • WhatsApp: +506 0000-0000
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
