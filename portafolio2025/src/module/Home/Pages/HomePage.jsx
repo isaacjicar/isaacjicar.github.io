@@ -1,0 +1,14 @@
+import RoomHero from "../components/hero/RoomHero";
+import CapabilitiesSection from "../components/capabilities/CapabilitiesSection";
+import ProjectsSection from "../components/projects/ProjectsSection";
+
+export default function HomePage() {
+  return (
+    <main className="min-h-dvh bg-baseDark text-white">
+      <RoomHero />
+      <ProjectsSection />
+      <CapabilitiesSection />   
+      <section id="about" className="mx-auto max-w-7xl px-6 md:px-8 pb-24 md:pb-32" />
+    </main>
+  );
+}

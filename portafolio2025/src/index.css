@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root{
+    --font-montserrat:"Montserrat",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-opensans:"Open Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+  html,body{ font-family:var(--font-opensans); }
+  h1,h2,h3,h4,h5,h6{ font-family:var(--font-montserrat); }
+}
+
+/* Animaciones */
+@keyframes shake-soft {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0); }
+  10% { transform: translate3d(-10px, -1px, 0) rotate(-0.3deg); }
+  20% { transform: translate3d(2px, 1px, 0) rotate(0.2deg); }
+  30% { transform: translate3d(-1px, 20px, 0) rotate(0.2deg); }
+  40% { transform: translate3d(20px, -2px, 0) rotate(-0.2deg); }
+  50% { transform: translate3d(0.5px, 1px, 0) rotate(0.1deg); }
+  60% { transform: translate3d(-1px, 0.5px, 0) rotate(-0.1deg); }
+  70% { transform: translate3d(1px, -30px, 0) rotate(0.1deg); }
+  80% { transform: translate3d(-0.5px, 1px, 0) rotate(-0.1deg); }
+  90% { transform: translate3d(1px, 0, 0) rotate(0.1deg); }
+}
+
+@keyframes shake-strong {
+  0%, 100% { transform: translate(0,0) rotate(0); }
+  20% { transform: translate(-3px, 2px) rotate(-0.6deg); }
+  40% { transform: translate(3px, -2px) rotate(0.6deg); }
+  60% { transform: translate(-2px, 3px) rotate(-0.5deg); }
+  80% { transform: translate(2px, -3px) rotate(0.5deg); }
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .shake-soft { animation: shake-soft 12s ease-in-out infinite; }
+  .shake-strong:hover { animation: shake-strong 0.7s ease-in-out both; }
+}
+
+.random-wiggle {
+  --amp-x: 22;
+  --amp-y: 14;
+  --amp-rot: 1.2;
+  --speed: 0.55;
+  transform:
+    translate3d(
+      var(--tw-translate-x, var(--tx, 0px)),
+      var(--tw-translate-y, var(--ty, 0px)),
+      0
+    )
+    rotate(var(--tw-rotate, var(--rot, 0deg)))
+    scale(var(--tw-scale-x, 1), var(--tw-scale-y, 1));
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .random-wiggle { transform: none !important; }
+}
+
+/* Contenedor con perspectiva y sombra suave grande */
+.tilt-wrap {
+  perspective: 1000px;
+  position: relative;
+  isolation: isolate;
+}
+.tilt-inner {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Sombra suave tipo “card grande” */
+.soft-shadow {
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.28),
+    0 2px 10px rgba(0,0,0,0.12);
+}
+
+/* Spotlight opcional (siguiendo el mouse) */
+.tilt-wrap::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--glare-opacity, 0);
+  background: radial-gradient(
+    400px 280px at calc(var(--mx, .5) * 100%) calc(var(--my, .5) * 100%),
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0) 60%
+  );
+  transition: opacity 200ms ease;
+}
+/* --- Tilt utilities --- */
+.tilt-wrap {
+  perspective: 1000px;
+  position: relative;
+  isolation: isolate;
+}
+.tilt-inner {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.soft-shadow {
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.28),
+    0 2px 10px rgba(0,0,0,0.12);
+}
+/* Spotlight que sigue el mouse */
+.tilt-wrap::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--glare-opacity, 0);
+  background: radial-gradient(
+    400px 280px at calc(var(--mx, .5) * 100%) calc(var(--my, .5) * 100%),
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0) 60%
+  );
+  transition: opacity 200ms ease;
+}
+
+/* ========== SCROLL REVEAL ========== */
+@keyframes reveal-up {
+  0%   { opacity: 0; transform: translateY(24px) scale(.98) }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) scale(1) }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(.98);
+  will-change: transform, opacity;
+}
+.reveal.inview {
+  animation: reveal-up var(--reveal-dur, 700ms) cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms) both;
+}
+
+/* “Intro” suave para la tarjeta con tilt */
+@keyframes tilt-pop {
+  0%   { opacity: 0; transform: translateY(18px) scale(.96) }
+  100% { opacity: 1; transform: translateY(0)   scale(1) }
+}
+.tilt-intro { opacity: 0; }
+.tilt-intro.inview {
+  animation: tilt-pop 700ms cubic-bezier(.2,.7,.2,1) both;
+}
+
