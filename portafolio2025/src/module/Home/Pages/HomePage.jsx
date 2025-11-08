@@ -1,4 +1,4 @@
-import RoomHero from "../components/hero/RoomHero";
+import RoomHero from "@/module/Home/Components/hero/RoomHero";
 import CapabilitiesSection from "@/module/Home/Components/capabilities/CapabilitiesSection";
 import ProjectsSection from "@/module/Home/Components/projects/ProjectsSection";
 
