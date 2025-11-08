@@ -1,5 +1,5 @@
 import { useInView } from "@/shared/motion/useInView";
-import CountUp from "@/shared/ui/CountUp";
+import CountUp from "@/shared/UI/CountUp";
 
 export default function StatChip({ value, l1, l2, delay = "0ms" }) {
   const [ref, inView] = useInView({ threshold: 0.4, replay: true });
