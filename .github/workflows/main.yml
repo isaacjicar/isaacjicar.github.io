@@ -1,0 +1,58 @@
+name: Deploy Vite site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]   # despliega al hacer push a main
+  workflow_dispatch:      # permite dispararlo manualmente
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # ⬇️ Si tu proyecto vive en /portafolio2025, deja esto así.
+    #    Si tu package.json está en la raíz del repo, BORRA todo el bloque defaults y
+    #    cambia paths 'portafolio2025/...' por 'dist' a secas.
+    defaults:
+      run:
+        working-directory: ./portafolio2025
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ./portafolio2025/package-lock.json
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./portafolio2025/dist   # si estás en raíz, usa: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
