@@ -1,6 +1,6 @@
 import RoomHero from "../components/hero/RoomHero";
-import CapabilitiesSection from "../components/capabilities/CapabilitiesSection";
-import ProjectsSection from "../components/projects/ProjectsSection";
+import CapabilitiesSection from "@/module/Home/Components/capabilities/CapabilitiesSection";
+import ProjectsSection from "@/module/Home/Components/projects/ProjectsSection";
 
 export default function HomePage() {
   return (
