@@ -7,19 +7,19 @@ const projects = [
     title: "Billetera Digital",
     desc: "Pagos presenciales, biometría, cupones, panel de comercios.",
     icon: "💳",
-    href: "/works#wallet",              // id del proyecto en data/projects
+    to: "/works#wallet",
   },
   {
     title: "Facturación Mueblería",
     desc: "Backend Spring Boot + Front React/Tailwind con inventario y usuarios.",
     icon: "🧾",
-    href: "/works#muebleria-service",   // el id que creaste para ese proyecto
+    to: "/works#muebleria-service",
   },
   {
     title: "Mueblería JC — Sitio web freelance",
     desc: "Tienda web full-stack con autenticación JWT, panel admin y catálogo.",
     icon: "🪑",
-    href: "/works#muebleria-freelance", // otro id
+    to: "/works#muebleria-freelance",
   },
 ];
 
