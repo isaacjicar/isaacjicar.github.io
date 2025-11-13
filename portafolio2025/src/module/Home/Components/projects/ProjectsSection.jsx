@@ -1,4 +1,4 @@
-// ProjectsSection.jsx
+import { Link } from "react-router-dom";
 import Reveal from "@/components/UI/Reveal";
 import FeatureCard from "@/module/Home/Components/projects/FeatureCard";
 
@@ -46,9 +46,12 @@ export default function ProjectsSection() {
       </div>
 
       <div className="mt-10">
-        <a href="/works" className="btn btn-secondary rounded-2xl normal-case px-6">
+        <Link
+          to="/works"
+          className="btn btn-secondary rounded-2xl normal-case px-6"
+        >
           Ver todos los proyectos
-        </a>
+        </Link>
       </div>
     </section>
   );
