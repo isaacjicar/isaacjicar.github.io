@@ -1,3 +1,5 @@
+// WorkCard.jsx
+import { Link } from "react-router-dom";
 import TiltCard from "@/components/UI/TiltCard.jsx";
 
 export default function WorkCard({ project, delay }) {
@@ -16,6 +18,7 @@ export default function WorkCard({ project, delay }) {
       <div className="mt-4 space-y-2">
         <h3 className="text-lg font-semibold">{project.title}</h3>
         <p className="text-sm text-white/70">{project.desc}</p>
+
         <div className="flex flex-wrap gap-2 text-[10px] uppercase tracking-wide">
           {project.tags.map((tag) => (
             <span
@@ -26,14 +29,13 @@ export default function WorkCard({ project, delay }) {
             </span>
           ))}
         </div>
-        {project.link && (
-          <a
-            href={project.link}
-            className="inline-flex items-center text-xs text-primary hover:text-primary/80 mt-1"
-          >
-            Ver proyecto →
-          </a>
-        )}
+
+        <Link
+          to={`/works/${project.id}`}
+          className="inline-flex items-center text-xs text-primary hover:text-primary/80 mt-1"
+        >
+          Ver proyecto →
+        </Link>
       </div>
     </div>
   );
