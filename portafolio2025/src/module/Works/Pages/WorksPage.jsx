@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PageIntroOverlay from "@/shared/ui/PageIntroOverlay";
+import PageIntroOverlay from "@/shared/UI/PageIntroOverlay";
 import WorksHero from "../Components/hero/WorksHero";
 import WorksGrid from "../Components/hero/WorksGrid";
 import workImg from "@/assets/Works.png";
