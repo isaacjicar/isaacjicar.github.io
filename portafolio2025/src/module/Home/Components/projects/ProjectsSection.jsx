@@ -1,3 +1,4 @@
+// ProjectsSection.jsx
 import Reveal from "@/components/UI/Reveal";
 import FeatureCard from "@/module/Home/Components/projects/FeatureCard";
 
@@ -6,16 +7,19 @@ const projects = [
     title: "Billetera Digital",
     desc: "Pagos presenciales, biometría, cupones, panel de comercios.",
     icon: "💳",
+    href: "/works#wallet",              // id del proyecto en data/projects
   },
   {
     title: "Facturación Mueblería",
     desc: "Backend Spring Boot + Front React/Tailwind con inventario y usuarios.",
     icon: "🧾",
+    href: "/works#muebleria-service",   // el id que creaste para ese proyecto
   },
   {
     title: "Mueblería JC — Sitio web freelance",
     desc: "Tienda web full-stack con autenticación JWT, panel admin y catálogo.",
     icon: "🪑",
+    href: "/works#muebleria-freelance", // otro id
   },
 ];
 
@@ -33,16 +37,14 @@ export default function ProjectsSection() {
         </p>
       </div>
 
-      {/* Grid de tarjetas */}
       <div className="grid gap-8 md:gap-10 xl:gap-12 md:grid-cols-3">
         {projects.map((p, idx) => (
           <Reveal key={p.title} delay={`${150 + idx * 120}ms`} dur="700ms">
-            <FeatureCard title={p.title} desc={p.desc} icon={p.icon} />
+            <FeatureCard {...p} />
           </Reveal>
         ))}
       </div>
 
-      {/* CTA opcional */}
       <div className="mt-10">
         <a href="/works" className="btn btn-secondary rounded-2xl normal-case px-6">
           Ver todos los proyectos

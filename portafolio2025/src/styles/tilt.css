@@ -1,0 +1,35 @@
+@layer utilities {
+  .tilt-wrap {
+    perspective: 1000px;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .tilt-inner {
+    will-change: transform;
+    transform-style: preserve-3d;
+  }
+
+  .soft-shadow {
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.28),
+      0 2px 10px rgba(0,0,0,0.12);
+  }
+
+  .tilt-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: var(--glare-opacity, 0);
+    background: radial-gradient(
+      400px 280px at calc(var(--mx, .5) * 100%) calc(var(--my, .5) * 100%),
+      rgba(255,255,255,0.25),
+      rgba(255,255,255,0) 60%
+    );
+    transition: opacity 200ms ease;
+  }
+}
+
+
