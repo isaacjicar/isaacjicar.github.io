@@ -1,0 +1,33 @@
+@layer utilities {
+  @keyframes reveal-up {
+    0%   { opacity: 0; transform: translateY(24px) scale(.98); }
+    60%  { opacity: 1; }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(.98);
+    will-change: transform, opacity;
+  }
+
+  .reveal.inview {
+    animation: reveal-up var(--reveal-dur, 700ms)
+      cubic-bezier(.2,.7,.2,1)
+      var(--reveal-delay, 0ms)
+      both;
+  }
+
+  @keyframes tilt-pop {
+    0%   { opacity: 0; transform: translateY(18px) scale(.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .tilt-intro {
+    opacity: 0;
+  }
+
+  .tilt-intro.inview {
+    animation: tilt-pop 700ms cubic-bezier(.2,.7,.2,1) both;
+  }
+}

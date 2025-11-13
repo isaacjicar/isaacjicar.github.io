@@ -1,0 +1,54 @@
+@layer components {
+  .page-intro {
+    --intro-bg: #05051a;
+    --intro-fg: #ffffff;
+    --intro-duration: 900ms;
+
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--intro-bg);
+    color: var(--intro-fg);
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .page-intro__label {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    animation: page-intro-text-in 500ms ease-out forwards;
+  }
+
+  .page-intro__curve {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -14vh;
+    height: 42vh;
+    background-color: var(--intro-bg);
+    border-radius: 50% 50% 0 0;
+  }
+
+  .page-intro--exit {
+    animation: page-intro-exit var(--intro-duration) ease-in-out forwards;
+  }
+
+  @keyframes page-intro-text-in {
+    0%   { opacity: 0; transform: translateY(18px) scale(.94); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes page-intro-exit {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+  }
+
+
+}
