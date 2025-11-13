@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PageIntroOverlay from "@/shared/ui/PageIntroOverlay";
+import PageIntroOverlay from "@/shared/UI/PageIntroOverlay";
 
 import RoomHero from "@/module/Home/Components/hero/RoomHero";
 import CapabilitiesSection from "@/module/Home/Components/capabilities/CapabilitiesSection";
