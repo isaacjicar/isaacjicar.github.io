@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 export default function PageIntroOverlay({
-  label,                // texto grande: "WORK", "HOME", "SERVICES"
-  theme = "primary",    // "primary" | "secondary" | "accent" | "custom"
-  bg = "#05051a",                   // si mandas bg/fg, override del theme
+  label,                
+  theme = "primary",   
+  bg = "#05051a",                  
   fg = "#ffffff",
   stayDuration = 600,
   exitDuration = 900,
-  graphicSrc,           // opcional: imagen que vuela
-  graphicVariant = "fly", // "fly" | "orbit" | "wiggle"
+  graphicSrc,           
+  graphicVariant = "fly", 
   onDone,
 }) {
   const [exit, setExit] = useState(false);
@@ -26,7 +26,7 @@ export default function PageIntroOverlay({
     "--intro-duration": `${exitDuration}ms`,
   };
 
-  // Colores por theme (usando DaisyUI/Tailwind CSS vars)
+
   if (!bg || !fg) {
     switch (theme) {
       case "primary":
