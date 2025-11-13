@@ -1,6 +1,6 @@
 // src/shared/sections/SocialLinksSection.jsx
-import { SocialOrbIcon } from "@/shared/ui/SocialOrbIcon";
-import { defaultSocials } from "@/shared/data/socials";
+import { SocialOrbIcon } from "@/shared/UI/SocialOrbIcon";
+import { defaultSocials } from "@/shared/sections/SocialLinksSection";
 
 export default function SocialLinksSection({
   id = "contact",
