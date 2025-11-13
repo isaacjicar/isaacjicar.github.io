@@ -1,16 +1,14 @@
-// Imágenes temporales (placeholders). 
-// Cuando tengas tus diseños finales, solo reemplaza cada URL.
 
 const placeholderMuebleria =
-  "https://images.pexels.com/photos/6964079/pexels-photo-6964079.jpeg"; // showroom / muebles
+  "https://images.pexels.com/photos/6964079/pexels-photo-6964079.jpeg"; 
 const placeholderMuebleriaBranding =
-  "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"; // branding / equipo
+  "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"; 
 const placeholderPokemon =
-  "https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg"; // gamer / neón
+  "https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg"; 
 const placeholderWallet =
-  "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg"; // fintech / pagos
+  "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg"; 
 const placeholderExtra =
-  "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg"; // código / dev
+  "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg";
 
 export const projects = [
   {
