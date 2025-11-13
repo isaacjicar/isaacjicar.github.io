@@ -1,5 +1,5 @@
-import AboutSection from "@/module/About/Components/AboutSection";
-import Footer from "@/layout/footer";
+import AboutSection from "../components/AboutSection";
+import Footer from "@/layout/Footer";
 import { useState } from "react";
 import PageIntroOverlay from "@/shared/UI/PageIntroOverlay";
 
