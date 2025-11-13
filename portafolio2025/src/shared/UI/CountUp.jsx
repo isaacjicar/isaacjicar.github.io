@@ -1,4 +1,4 @@
-// src/shared/ui/CountUp.jsx
+
 import { useEffect, useState } from "react";
 
 export default function CountUp({ to = 10, duration = 900 }) {
