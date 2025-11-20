@@ -1,4 +1,3 @@
-// HeroText.jsx
 import Reveal from "@/components/UI/Reveal";
 import StatChip from "@/module/Home/Components/hero/StatChip";
 
@@ -36,12 +35,12 @@ export default function HeroText({ t }) {
       </div>
 
       <div className="pt-4 md:pt-6 flex gap-4">
-        <a href="/works" className="btn-cta-main">
+        <Link to="/works" className="btn-cta-main">
           {t.heroBtnProjects}
-        </a>
-        <a href="/about" className="btn-ghost-secondary">
+        </Link>
+        <Link to="/about" className="btn-ghost-secondary">
           {t.heroBtnAbout}
-        </a>
+        </Link>
       </div>
     </Reveal>
   );
