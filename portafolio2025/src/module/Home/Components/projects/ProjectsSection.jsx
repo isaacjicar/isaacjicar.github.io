@@ -51,7 +51,7 @@ export default function ProjectsSection({ t, lang }) {
 
   return (
     <section id="projects" className="section-shell-wide">
-      {/* Header */}
+
       <div className="mb-10 md:mb-12">
         <p className="eyebrow">{t.projectsTag}</p>
 
@@ -63,7 +63,6 @@ export default function ProjectsSection({ t, lang }) {
         <p className="section-subtitle">{t.projectsDesc}</p>
       </div>
 
-      {/* Cards */}
       <div className="grid gap-8 md:gap-10 xl:gap-12 md:grid-cols-3">
         {projects.map((p, idx) => (
           <Reveal key={p.title} delay={`${150 + idx * 120}ms`} dur="700ms">
@@ -72,7 +71,6 @@ export default function ProjectsSection({ t, lang }) {
         ))}
       </div>
 
-      {/* Botón “Ver todos los proyectos” */}
       <div className="mt-10">
         <Link to="/works" className="btn-section-secondary">
           {t.projectsBtnAll}

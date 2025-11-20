@@ -13,13 +13,44 @@
            px-5 py-4 ring-1 ring-white/10;
   }
 
-  .btn-cta-main {
-    @apply btn btn-primary rounded-2xl px-6 normal-case font-semibold;
+   .btn-cta-main {
+    @apply btn rounded-2xl px-6 normal-case font-semibold
+           shadow-[0_10px_0_rgba(0,0,0,0.5)]
+           transition-transform;
+
+    background-color: var(--color-accent);
+    border-color: transparent;
+    color: #0b1020; 
+  }
+    .btn-cta-main:hover {
+    @apply translate-y-[2px];
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.5);
   }
 
-  .btn-ghost-secondary {
-    @apply btn btn-outline border-secondary/50 text-secondary 
-           hover:border-secondary rounded-2xl normal-case px-6;
+  .btn-cta-main:active {
+    @apply translate-y-[3px];
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+    background-color: var(--color-accent);
+  }
+
+   .btn-ghost-secondary {
+    @apply btn btn-outline rounded-2xl normal-case px-6 font-semibold
+           shadow-[0_10px_0_rgba(0,0,0,0.5)]
+           transition-transform;
+    border-color: var(--color-primary); 
+    color: var(--color-primary);      
+  }
+
+  .btn-ghost-secondary:hover {
+    @apply translate-y-[2px];
+     color: var(--color-accent); 
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(76, 108, 179, 0.15); 
+  }
+
+  .btn-ghost-secondary:active {
+    @apply translate-y-[3px];
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
   }
 
   .chip-stat {
@@ -28,11 +59,42 @@
   }
 
   .btn-card-secondary {
-    @apply btn btn-sm btn-secondary rounded-xl;
+    @apply btn btn-sm btn-secondary rounded-xl
+       shadow-[0_10px_0_rgba(0,0,0,0.5)]
+           transition-transform;
+           background-color: var(--color-secondary);
+           border-color: transparent;
+           color: #0b1020; 
+  }
+
+  .btn-card-secondary:hover {
+    @apply translate-y-[2px];
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-card-secondary:active {
+    @apply translate-y-[3px];
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+    background-color: var(--color-accent);
   }
 
   .btn-section-secondary {
-    @apply btn btn-secondary rounded-2xl normal-case px-6;
+    @apply btn btn-secondary rounded-2xl normal-case px-6
+           shadow-[0_10px_0_rgba(0,0,0,0.5)]
+           transition-transform;
+           background-color: var(--color-secondary);
+           border-color: transparent;
+           color: #0b1020; 
+  }
+  .btn-section-secondary:hover {
+    @apply translate-y-[2px];
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-section-secondary:active {
+    @apply translate-y-[3px];
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+    background-color: var(--color-accent);
   }
   
   .btn-cta-primary {
