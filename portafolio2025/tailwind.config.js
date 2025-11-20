@@ -5,11 +5,10 @@ module.exports = {
     extend: {
       colors: {
         baseDark: "#0b1020",
-        // (opcional) nombres directos si quieres usarlos como utilities
         brand: {
-          primary:   "#4C6CB3", // 60
-          secondary: "#4C9FB3", // 30
-          accent:    "#4CB393", // 10
+          primary:   "#4C6CB3", 
+          secondary: "#4C9FB3", 
+          accent:    "#4CB393", 
         },
       },
       backgroundImage: {
@@ -23,9 +22,9 @@ module.exports = {
     themes: [
       {
         isaacTheme: {
-          primary:   "#4C6CB3", // 60
-          secondary: "#4C9FB3", // 30
-          accent:    "#4CB393", // 10
+          primary:   "#4C6CB3", 
+          secondary: "#4C9FB3", 
+          accent:    "#4CB393", 
           neutral:   "#151923",
           "base-100":"#0b1020",
           info:      "#4C9FB3",

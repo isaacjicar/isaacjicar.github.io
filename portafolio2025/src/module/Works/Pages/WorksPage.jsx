@@ -3,7 +3,8 @@ import PageIntroOverlay from "@/shared/UI/PageIntroOverlay";
 import WorksHero from "../Components/hero/WorksHero";
 import WorksGrid from "../Components/hero/WorksGrid";
 import workImg from "@/assets/Works.png";
-import Footer from "@/layout/footer";
+import ScrollTopButton from "@/components/UI/ScrollTopButton";
+
 
 export default function PageWorks() {
   const [showIntro, setShowIntro] = useState(true);
@@ -24,7 +25,7 @@ export default function PageWorks() {
 
       <WorksHero />
       <WorksGrid />
-      <Footer />
+      <ScrollTopButton />
     </main>
   );
 }

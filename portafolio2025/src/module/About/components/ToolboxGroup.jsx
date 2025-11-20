@@ -4,16 +4,12 @@ import Reveal from "@/components/UI/Reveal";
 export default function ToolboxGroup({
   title,
   items,
-  accentColor = "#4C9FB3",
-  pillBg = "#4C6CB3",
-  dotColor = "#4CB393",
+  accentColor = "var(--color-secondary)",
+  pillBg = "var(--color-primary)",
+  dotColor = "var(--color-accent)",
 }) {
   return (
-    <Reveal
-      as="div"              
-      className="space-y-4"  
-      dur="700ms"             
-    >
+    <Reveal as="div" className="space-y-4" dur="700ms">
       <h4
         className="text-sm md:text-base font-bold tracking-[0.18em] uppercase"
         style={{ color: accentColor }}

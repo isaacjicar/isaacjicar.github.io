@@ -3,6 +3,10 @@
 @import "./styles/tilt.css";
 @import "./styles/scroll-reveal.css";
 @import "./styles/page-intro.css";
+@import "./styles/layout.css";
+@import "./styles/buttons.css";
+@import "./styles/tokens.css";
+@import "./styles/sections.css";
 
 @tailwind base;
 @tailwind components;

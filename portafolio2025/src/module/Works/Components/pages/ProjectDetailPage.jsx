@@ -1,6 +1,7 @@
 // src/module/Works/Pages/ProjectDetailPage.jsx
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import ScrollTopButton from "@/components/UI/ScrollTopButton";
 import Footer from "@/layout/footer";
 
 // Info extra por proyecto
@@ -176,6 +177,7 @@ export default function ProjectDetailPage() {
           ← Volver a proyectos
         </Link>
       </section>
+      <ScrollTopButton />
 
       <Footer />
     </main>

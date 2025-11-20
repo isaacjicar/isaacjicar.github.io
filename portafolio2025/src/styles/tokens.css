@@ -1,0 +1,12 @@
+/* styles/tokens.css */
+@layer base {
+  :root {
+    --color-base-dark: #050816;
+    --color-primary:   #4C6CB3;
+    --color-secondary: #4C9FB3;
+    --color-accent:    #4CB393;
+    --color-neutral:   #0f172a;
+
+    --radius-card-xl: 32px;
+  }
+}
