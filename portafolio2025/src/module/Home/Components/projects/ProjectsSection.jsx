@@ -1,56 +1,81 @@
+// ProjectsSection.jsx
 import { Link } from "react-router-dom";
 import Reveal from "@/components/UI/Reveal";
 import FeatureCard from "@/module/Home/Components/projects/FeatureCard";
 
-const projects = [
-  {
-    title: "Billetera Digital",
-    desc: "Pagos presenciales, biometría, cupones, panel de comercios.",
-    icon: "💳",
-    to: "/works#wallet",
-  },
-  {
-    title: "Facturación Mueblería",
-    desc: "Backend Spring Boot + Front React/Tailwind con inventario y usuarios.",
-    icon: "🧾",
-    to: "/works#muebleria-service",
-  },
-  {
-    title: "Mueblería JC — Sitio web freelance",
-    desc: "Tienda web full-stack con autenticación JWT, panel admin y catálogo.",
-    icon: "🪑",
-    to: "/works#muebleria-freelance",
-  },
-];
+const projectsByLang = {
+  es: [
+    {
+      title: "Billetera Digital",
+      desc: "Pagos presenciales, biometría, cupones, panel de comercios.",
+      icon: "💳",
+      to: "/works#wallet",
+    },
+    {
+      title: "Facturación Mueblería",
+      desc: "Backend Spring Boot + Front React/Tailwind con inventario y usuarios.",
+      icon: "🧾",
+      to: "/works#muebleria-service",
+    },
+    {
+      title: "Mueblería JC — Sitio web freelance",
+      desc: "Tienda web full-stack con autenticación JWT, panel admin y catálogo.",
+      icon: "🪑",
+      to: "/works#muebleria-freelance",
+    },
+  ],
+  en: [
+    {
+      title: "Digital Wallet",
+      desc: "In-person payments, biometrics, coupons, merchant dashboard.",
+      icon: "💳",
+      to: "/works#wallet",
+    },
+    {
+      title: "Furniture Billing System",
+      desc: "Spring Boot backend + React/Tailwind frontend with inventory and users.",
+      icon: "🧾",
+      to: "/works#muebleria-service",
+    },
+    {
+      title: "Mueblería JC — Freelance website",
+      desc: "Full-stack store with JWT authentication, admin panel and catalog.",
+      icon: "🪑",
+      to: "/works#muebleria-freelance",
+    },
+  ],
+};
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ t, lang }) {
+  const projects = projectsByLang[lang] ?? projectsByLang.es;
+
   return (
-    <section id="projects" className="mx-auto max-w-7xl px-6 md:px-8 py-20 md:py-28">
+    <section id="projects" className="section-shell-wide">
       {/* Header */}
       <div className="mb-10 md:mb-12">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/60">Proyectos</p>
-        <h2 className="mt-2 text-4xl md:text-5xl font-black leading-tight">
-          <span className="text-accent">Proyectos</span> destacados
+        <p className="eyebrow">{t.projectsTag}</p>
+
+        <h2 className="section-title">
+          <span className="text-accent">{t.projectsTitleAccent}</span>{" "}
+          {t.projectsTitleRest}
         </h2>
-        <p className="mt-4 max-w-3xl text-white/80">
-          Una selección de trabajos recientes construidos con Spring Boot y React.
-        </p>
+
+        <p className="section-subtitle">{t.projectsDesc}</p>
       </div>
 
+      {/* Cards */}
       <div className="grid gap-8 md:gap-10 xl:gap-12 md:grid-cols-3">
         {projects.map((p, idx) => (
           <Reveal key={p.title} delay={`${150 + idx * 120}ms`} dur="700ms">
-            <FeatureCard {...p} />
+            <FeatureCard {...p} ctaLabel={t.projectsCardMore} />
           </Reveal>
         ))}
       </div>
 
+      {/* Botón “Ver todos los proyectos” */}
       <div className="mt-10">
-        <Link
-          to="/works"
-          className="btn btn-secondary rounded-2xl normal-case px-6"
-        >
-          Ver todos los proyectos
+        <Link to="/works" className="btn-section-secondary">
+          {t.projectsBtnAll}
         </Link>
       </div>
     </section>

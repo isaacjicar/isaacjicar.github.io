@@ -1,4 +1,4 @@
-import TiltCard from "@/components/UI/TiltCard";  
+import TiltCard from "@/components/UI/TiltCard";
 import roomImg from "@/assets/Homepage.png";
 
 export default function HeroImage() {
@@ -7,7 +7,7 @@ export default function HeroImage() {
       <TiltCard
         className="z-10"
         img={roomImg}
-        aspect="aspect-[4/5]"    
+        aspect="aspect-[4/5]"
         maxTilt={12}
         scale={1.03}
         glare

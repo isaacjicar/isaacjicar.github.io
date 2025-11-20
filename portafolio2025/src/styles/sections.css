@@ -1,0 +1,87 @@
+@layer components {
+  .about-hero-card {
+    @apply grid gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.25fr)]
+           items-center card-glass-main p-8 md:p-12;
+  }
+
+  .toolbox-shell {
+    @apply mt-10 rounded-[32px] bg-neutral/70 border border-white/10 
+           p-8 md:p-10 shadow-[0_26px_70px_rgba(0,0,0,0.85)] space-y-10;
+  }
+
+  .pill-skill {
+    @apply inline-flex items-center gap-2 rounded-2xl px-4 py-3 
+           text-xs md:text-sm font-medium text-white 
+           shadow-[0_8px_0_rgba(0,0,0,0.6)];
+  }
+  .card-feature {
+    @apply card bg-neutral/60 backdrop-blur
+           border border-white/5 shadow-xl rounded-3xl;
+  }
+
+  .card-feature-body {
+    @apply card-body p-7 md:p-9 gap-3;
+  }
+
+  .section-shell-narrow {
+    @apply mx-auto max-w-6xl px-4 py-20 md:py-28;
+  }
+
+  
+  .about-main-card {
+    @apply grid gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.25fr)]
+           items-center rounded-[32px] bg-neutral/60 border border-white/10
+           p-8 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)];
+  }
+
+  .about-photo-frame {
+    @apply overflow-hidden rounded-[28px] bg-baseDark
+           aspect-[4/5] max-w-sm w-full border border-white/5;
+  }
+
+  .about-tagline {
+    @apply text-xs md:text-sm uppercase tracking-[0.25em] text-info;
+
+  }
+
+  .about-body {
+    @apply text-sm md:text-base leading-relaxed text-white/80;
+  }
+
+  .about-resume-btn {
+    @apply inline-flex items-center justify-center rounded-full
+           bg-accent px-7 py-3 text-sm md:text-base font-semibold
+           tracking-[0.18em] uppercase text-[#0b1020]
+           shadow-[0_10px_0_rgba(0,0,0,0.5)] transition
+           hover:translate-y-[2px] hover:shadow-[0_6px_0_rgba(0,0,0,0.5)];
+  }
+
+  .toolbox-panel {
+    @apply mt-10 rounded-[32px] bg-neutral/70 border border-white/10
+           p-8 md:p-10 shadow-[0_26px_70px_rgba(0,0,0,0.85)] space-y-10;
+  }
+
+
+  .toolbox-group {
+    @apply space-y-4;
+  }
+
+  .toolbox-title {
+    @apply text-sm md:text-base font-bold
+           tracking-[0.18em] uppercase text-info;
+  }
+
+  .toolbox-grid {
+    @apply grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+  }
+
+  .toolbox-pill {
+    @apply inline-flex items-center gap-2 rounded-2xl px-4 py-3
+           text-xs md:text-sm font-medium text-white
+           shadow-[0_8px_0_rgba(0,0,0,0.6)] bg-primary;
+  }
+
+  .toolbox-pill-dot {
+    @apply inline-block h-2 w-2 rounded-full bg-accent;
+  }
+}
