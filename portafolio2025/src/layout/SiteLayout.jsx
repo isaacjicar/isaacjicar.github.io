@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
+import Footer from "@/layout/Footer";
 import { uiTexts } from "./i18n/uiTexts";
 
 export default function SiteLayout() {
