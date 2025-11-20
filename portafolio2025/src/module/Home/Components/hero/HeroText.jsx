@@ -1,5 +1,8 @@
+
+import { Link } from "react-router-dom";
 import Reveal from "@/components/UI/Reveal";
 import StatChip from "@/module/Home/Components/hero/StatChip";
+
 
 export default function HeroText({ t }) {
   return (
