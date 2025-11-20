@@ -2,8 +2,8 @@ name: Deploy Vite site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # despliega al hacer push a main
-  workflow_dispatch:      # permite dispararlo manualmente
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # ⬇️ Si tu proyecto vive en /portafolio2025, deja esto así.
-    #    Si tu package.json está en la raíz del repo, BORRA todo el bloque defaults y
-    #    cambia paths 'portafolio2025/...' por 'dist' a secas.
     defaults:
       run:
         working-directory: ./portafolio2025
@@ -41,10 +38,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: SPA fallback for GitHub Pages
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./portafolio2025/dist   # si estás en raíz, usa: dist
+          path: ./portafolio2025/dist
 
   deploy:
     needs: build
