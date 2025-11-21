@@ -11,11 +11,11 @@ export default function SiteLayout() {
 
   return (
     <div className="min-h-dvh bg-baseDark text-white flex flex-col">
-      {/* NavBar recibe lang, setLang y texts */}
+
       <NavBar lang={lang} setLang={setLang} texts={texts} />
 
       <main className="flex-1">
-        {/* pasamos lang al resto de páginas */}
+  
         <Outlet context={{ lang }} />
       </main>
 

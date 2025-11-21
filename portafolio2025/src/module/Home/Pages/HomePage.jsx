@@ -1,6 +1,6 @@
-// src/module/Home/pages/HomePage.jsx
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useEffect } from "react";
 
 import PageIntroOverlay from "@/shared/UI/PageIntroOverlay";
 import RoomHero from "@/module/Home/Components/hero/RoomHero";
@@ -13,13 +13,17 @@ const homeImg =
   "https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg";
 
 export default function HomePage() {
-  const { lang } = useOutletContext();          // 👈 viene desde SiteLayout
+  const { lang } = useOutletContext();        
   const [showIntro, setShowIntro] = useState(true);
   const t = homeTexts[lang];
 
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "auto" }); // o "smooth" si lo quieres animado
+    }, []);
+
   return (
     <main className="relative min-h-dvh bg-baseDark text-white">
-      {/* OJO: ya no hacemos el switch ES/EN aquí, eso vive en el NavBar */}
+
 
       {showIntro && (
         <PageIntroOverlay
@@ -41,7 +45,7 @@ export default function HomePage() {
         className="mx-auto max-w-7xl px-6 md:px-8 pb-24 md:pb-32"
       />
 
-      {/* Footer ya no va aquí, está en SiteLayout */}
+    
       <ScrollTopButton />
     </main>
   );

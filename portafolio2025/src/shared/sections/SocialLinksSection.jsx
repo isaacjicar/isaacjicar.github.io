@@ -1,4 +1,3 @@
-// src/shared/sections/SocialLinksSection.jsx
 import { SocialOrbIcon } from "@/shared/UI/SocialOrbIcon";
 import { defaultSocials } from "@/shared/data/socials";
 

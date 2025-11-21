@@ -1,4 +1,3 @@
-// src/shared/motion/useRandomWiggle.ts
 import { useCallback, useEffect, useRef } from "react";
 
 type WiggleOptions = {

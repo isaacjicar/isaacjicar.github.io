@@ -3,7 +3,7 @@ export const aboutTexts = {
   es: {
     overlayLabel: "Sobre mí",
 
-    // Card principal
+
     badge: "ISAAC JIMÉNEZ · INGENIERO EN DESARROLLO DE SOFTWARE",
     title: "Full-Stack Software Engineer",
 
@@ -28,13 +28,13 @@ export const aboutTexts = {
     langEnLabel: "Inglés:",
     langEnValue: "B2",
 
-    // Sección redes
+ 
     socialEyebrow: "Conectemos",
     socialTitle: "¿Dónde puedes encontrarme?",
     socialDesc:
       "Estoy abierto a proyectos freelance, colaboraciones y oportunidades laborales. Puedes escribirme por correo o contactarme en mis redes.",
 
-    // Sección toolbox
+
     toolboxEyebrow: "Toolbox",
     toolboxTitle: "Tecnologías y habilidades que uso en mis proyectos",
     toolboxDesc:

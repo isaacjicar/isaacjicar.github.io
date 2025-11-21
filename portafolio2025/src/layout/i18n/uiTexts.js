@@ -1,4 +1,3 @@
-// src/i18n/uiTexts.js
 export const uiTexts = {
   es: {
     nav: {

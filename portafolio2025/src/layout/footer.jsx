@@ -49,7 +49,7 @@ export default function Footer({ texts }) {
           delay="260ms"
           dur="700ms"
         >
-          {/* Redes */}
+ 
           <div className="flex items-center justify-center md:justify-start gap-4">
             <a
               href="mailto:isaacijiemmenez@gmail.com"
@@ -71,7 +71,7 @@ export default function Footer({ texts }) {
             </a>
           </div>
 
-          {/* Copyright */}
+          
           <p className="text-center text-slate-400">
             {year} · {t.rights} · Diseño &amp; código por{" "}
             <span className="font-semibold text-[#4C9FB3]">

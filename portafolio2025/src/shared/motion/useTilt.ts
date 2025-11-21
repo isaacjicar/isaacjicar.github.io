@@ -1,22 +1,20 @@
-// src/shared/motion/useTilt.js
-// @ts-check
 import { useCallback, useEffect, useRef } from "react";
 
 /**
- * @typedef {Object} TiltOpts
- * @property {number} [maxTilt]
- * @property {number} [scale]
- * @property {boolean} [glare]
- * @property {number} [transitionMs]
+  @typedef {Object} TiltOpts
+  @property {number} [maxTilt]
+  @property {number} [scale]
+  @property {boolean} [glare]
+  @property {number} [transitionMs]
  */
 
 /**
- * @param {TiltOpts} [opts]
- * @returns {(node: HTMLElement|null) => void}
+  @param {TiltOpts} [opts]
+  @returns {(node: HTMLElement|null) => void}
  */
 export function useTilt(opts) {
   /** @type {TiltOpts} */
-  const options = opts ?? {}; // <- aquí TS entiende el tipo
+  const options = opts ?? {}; 
 
   const {
     maxTilt = 10,
