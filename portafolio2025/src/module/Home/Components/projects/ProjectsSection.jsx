@@ -1,4 +1,4 @@
-// ProjectsSection.jsx
+
 import { Link } from "react-router-dom";
 import Reveal from "@/components/UI/Reveal";
 import FeatureCard from "@/module/Home/Components/projects/FeatureCard";

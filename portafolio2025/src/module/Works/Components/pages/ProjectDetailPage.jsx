@@ -1,73 +1,42 @@
-// src/module/Works/Pages/ProjectDetailPage.jsx
-import { useParams, Link } from "react-router-dom";
-import { projects } from "../data/projects";
+import { useParams, Link, useOutletContext } from "react-router-dom";
 import ScrollTopButton from "@/components/UI/ScrollTopButton";
-import Footer from "@/layout/footer";
+import Reveal from "@/components/UI/Reveal";
+import { projectsByLang } from "../data/projects";
+import { workDetailTexts } from "@/module/Works/i18n/workDetailTexts";
+import { caseStudyExtraByLang } from "../data/caseStudyExtra";
+import { useEffect } from "react";
 
-// Info extra por proyecto
-const caseStudyExtra = {
-  wallet: {
-    category: "Fintech · UX · Seguridad",
-    subtitle:
-      "Prototipo de billetera digital pensada para pagos presenciales en Costa Rica, con foco en seguridad y experiencia de usuario.",
-    brief: `
-      La Billetera Digital CR nace de una necesidad real: reducir el uso de efectivo
-      en comercios pequeños sin obligar al usuario a usar tarjetas físicas. El proyecto
-      explora cómo combinar QR, validaciones biométricas y un flujo de pago simple.
-    `,
-    role: [
-      "Arquitectura de la solución",
-      "Diseño de experiencia de usuario (UX)",
-      "Desarrollo fullstack",
-    ],
-    deliverables: [
-      "Prototipo funcional",
-      "API REST en Spring Boot",
-      "UI en React + Tailwind",
-      "Documentación técnica",
-    ],
-    sections: [
-      {
-        id: "ux-flow",
-        label: "UX / Flujo",
-        title: "Flujo de pago pensado para cero fricción",
-        body: `
-          El objetivo principal fue que el usuario pudiera pagar en menos de 10 segundos
-          desde que escanea el código. Se diseñó un flujo con confirmación visual clara,
-          estados de error específicos y un resumen final de la transacción.
-        `,
-        image:
-          "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg",
-      },
-      {
-        id: "security",
-        label: "Seguridad",
-        title: "Capas de seguridad sin sacrificar experiencia",
-        body: `
-          Se plantearon validaciones por PIN, biometría (cuando el dispositivo lo permite)
-          y verificación de identidad con cédula costarricense. La arquitectura separa
-          claramente los servicios de autenticación y los de pagos.
-        `,
-        image:
-          "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
-      },
-    ],
-  },
-  // muebleria-service, pokemon-game, etc. los agregas aquí igual
-};
 
 export default function ProjectDetailPage() {
   const { projectId } = useParams();
-  const baseProject = projects.find((p) => p.id === projectId);
-  const extra = caseStudyExtra[projectId];
+  const { lang } = useOutletContext();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" }); 
+  }, [projectId]);
+
+  const t = workDetailTexts[lang] ?? workDetailTexts.es;
+
+  const allProjects = projectsByLang[lang] ?? projectsByLang.es;
+  const baseProject =
+    allProjects.find((p) => p.id === projectId) ??
+    projectsByLang.es.find((p) => p.id === projectId);
+
+  const extra =
+    caseStudyExtraByLang[lang]?.[projectId] ??
+    caseStudyExtraByLang.es?.[projectId];
+
+  const suggestedProjects = allProjects
+    .filter((p) => p.id !== projectId)
+    .slice(0, 3);
 
   if (!baseProject) {
     return (
       <main className="min-h-dvh bg-baseDark text-white flex items-center justify-center">
         <div className="text-center space-y-4">
-          <p className="text-sm text-white/60">Proyecto no encontrado.</p>
-          <Link to="/works" className="btn btn-secondary rounded-xl">
-            Volver a proyectos
+          <p className="section-subtitle">{t.notFound}</p>
+          <Link to="/works" className="btn-cta-main">
+            {t.backToProjects}
           </Link>
         </div>
       </main>
@@ -76,110 +45,224 @@ export default function ProjectDetailPage() {
 
   return (
     <main className="min-h-dvh bg-baseDark text-white">
-      {/* HERO / BRIEF */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <p className="text-xs uppercase tracking-[0.25em] text-white/50">
-          {extra?.category || "Case study"}
-        </p>
+      <Reveal>
+        <ProjectHero
+          project={baseProject}
+          extra={extra}
+          t={t}
+          lang={lang}
+        />
+      </Reveal>
 
-        <h1 className="mt-3 text-4xl md:text-5xl font-black">
-          {baseProject.title}
-        </h1>
 
-        <p className="mt-4 text-base md:text-lg max-w-2xl text-white/70">
-          {extra?.subtitle || baseProject.desc}
-        </p>
+      <Reveal>
+        <ProjectMainImage project={baseProject} />
+      </Reveal>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr]">
-          {/* Brief */}
-          <div>
-            <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-accent">
-              Brief
-            </h2>
-            <p className="mt-3 text-sm md:text-base leading-relaxed text-white/80 whitespace-pre-line">
-              {extra?.brief || baseProject.desc}
-            </p>
-          </div>
+      {/* ANCLA PARA EL SCROLL SUAVE */}
+      {extra?.sections?.length > 0 && <div id="ux-section" />}
 
-          {/* Columna derecha: Rol / Entregables */}
-          <div className="space-y-6 text-sm md:text-base">
-            <div>
-              <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-accent">
-                Rol
-              </h3>
-              <ul className="mt-2 space-y-1 text-white/80">
-                {extra?.role?.map((item) => (
-                  <li key={item}>• {item}</li>
-                )) || <li>• Desarrollo fullstack</li>}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-accent">
-                Entregables
-              </h3>
-              <ul className="mt-2 space-y-1 text-white/80">
-                {extra?.deliverables?.map((d) => (
-                  <li key={d}>• {d}</li>
-                )) || <li>• Prototipo funcional</li>}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* IMAGEN PRINCIPAL GRANDE */}
-      <section className="mx-auto max-w-6xl px-4 pb-12">
-        <div className="overflow-hidden rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.7)] bg-neutral/80">
-          <img
-            src={baseProject.img}
-            alt={baseProject.title}
-            className="w-full h-auto object-cover"
-          />
-        </div>
-      </section>
-
-      {/* SECCIONES EXTRA */}
-      {extra?.sections?.map((section) => (
-        <section
+      {/* SECCIONES DETALLADAS */}
+      {extra?.sections?.map((section, index) => (
+        <Reveal
           key={section.id}
-          className="mx-auto max-w-6xl px-4 py-12 border-t border-white/10"
+          as="section"
+          dur="700ms"
+          delay={`${150 + index * 120}ms`}
+          className={
+            "mx-auto max-w-6xl px-4 py-12 border-t border-white/10" +
+            (index === 0 ? " min-h-[80vh] flex items-center" : "")
+          }
         >
-          <div className="grid gap-10 md:grid-cols-2 md:items-start">
-            <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-white/50">
-                {section.label}
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">{section.title}</h2>
-              <p className="mt-3 text-sm md:text-base leading-relaxed text-white/80 whitespace-pre-line">
-                {section.body}
-              </p>
-            </div>
-
-            {section.image && (
-              <div className="overflow-hidden rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.7)] bg-neutral/80">
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
-          </div>
-        </section>
+          <ProjectSection section={section} />
+        </Reveal>
       ))}
 
-      {/* BOTÓN VOLVER */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      {/* MÁS PROYECTOS (SUGERENCIAS) */}
+      {suggestedProjects.length > 0 && (
+        <Reveal
+          as="section"
+          dur="700ms"
+          delay="120ms"
+          className="mx-auto max-w-6xl px-4 py-16 border-t border-white/10"
+        >
+          <MoreProjectsSection
+            projects={suggestedProjects}
+            t={t}
+          />
+        </Reveal>
+      )}
+
+
+
+      <ScrollTopButton />
+    </main>
+  );
+}
+
+// ---------- SUBCOMPONENTES REUTILIZABLES ----------
+
+function ProjectHero({ project, extra, t, lang }) {
+  const handleScrollToUx = () => {
+    const el = document.getElementById("ux-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-16 space-y-8">
+      <p className="eyebrow text-white/60">
+        {extra?.category || t.heroCategoryFallback}
+      </p>
+
+      <div className="space-y-4">
+        <h1 className="section-title text-3xl md:text-5xl">
+          {project.title}
+        </h1>
+        <p className="section-subtitle max-w-2xl">
+          {extra?.subtitle || project.desc}
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-10 md:grid-cols-[2fr_1fr]">
+        <div>
+          <h2 className="eyebrow text-accent">{t.briefLabel}</h2>
+          <p className="mt-3 text-sm md:text-base leading-relaxed text-white/80 whitespace-pre-line">
+            {extra?.brief || project.desc}
+          </p>
+        </div>
+
+        <div className="space-y-6 text-sm md:text-base">
+          <div>
+            <h3 className="eyebrow text-accent">{t.roleLabel}</h3>
+            <ul className="mt-2 space-y-1 text-white/80">
+              {extra?.role?.length
+                ? extra.role.map((item) => <li key={item}>• {item}</li>)
+                : <li>• {t.defaultRoleItem}</li>}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="eyebrow text-accent">{t.deliverablesLabel}</h3>
+            <ul className="mt-2 space-y-1 text-white/80">
+              {extra?.deliverables?.length
+                ? extra.deliverables.map((d) => <li key={d}>• {d}</li>)
+                : <li>• {t.defaultDeliverableItem}</li>}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {extra?.sections?.length > 0 && (
+        <div className="mt-8 flex flex-wrap gap-4">
+          <button
+            type="button"
+            onClick={handleScrollToUx}
+            className="btn-cta-main"
+          >
+            {lang === "en"
+              ? "More about the UI / UX"
+              : "Más sobre el diseño UI / UX"}
+          </button>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function ProjectMainImage({ project }) {
+  return (
+    <section className="mx-auto max-w-6xl px-4 pb-12">
+      <div className="overflow-hidden rounded-3xl soft-shadow bg-neutral/80">
+        <img
+          src={project.img}
+          alt={project.title}
+          className="w-full h-auto object-cover"
+        />
+      </div>
+    </section>
+  );
+}
+
+function ProjectSection({ section }) {
+  return (
+    <div className="grid gap-10 md:grid-cols-2 md:items-start">
+      <div>
+        <p className="eyebrow text-white/60">{section.label}</p>
+        <h2 className="mt-3 text-2xl font-semibold">{section.title}</h2>
+        <p className="mt-3 text-sm md:text-base leading-relaxed text-white/80 whitespace-pre-line">
+          {section.body}
+        </p>
+      </div>
+
+      {section.image && (
+        <div className="overflow-hidden rounded-3xl soft-shadow bg-neutral/80">
+          <img
+            src={section.image}
+            alt={section.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MoreProjectsSection({ projects, t }) {
+  return (
+    <>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl md:text-2xl font-semibold">
+          {t.moreProjectsTitle ?? "Más proyectos que te pueden interesar"}
+        </h2>
         <Link
           to="/works"
-          className="inline-flex items-center text-sm font-medium text-accent hover:text-accent/80 underline underline-offset-4"
+          className="btn-cta-main"
         >
-          ← Volver a proyectos
+          {t.viewAllProjects ?? "Ver todos los proyectos"}
         </Link>
-      </section>
-      <ScrollTopButton />
+      </div>
 
-      <Footer />
-    </main>
+      <div className="grid gap-6 md:grid-cols-3">
+        {projects.map((project) => (
+          <Link
+            key={project.id}
+            to={`/works/${project.id}`}
+            className="group rounded-3xl bg-neutral/70 soft-shadow overflow-hidden flex flex-col hover:bg-neutral/90 transition-colors"
+          >
+            <div className="overflow-hidden">
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-full h-40 md:h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div className="p-4 space-y-2 flex-1 flex flex-col">
+              <h3 className="text-sm md:text-base font-semibold">
+                {project.title}
+              </h3>
+              <p className="text-xs md:text-sm text-white/70 line-clamp-3">
+                {project.desc}
+              </p>
+
+              {project.tags?.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 rounded-full bg-white/5 text-[10px] md:text-xs text-white/80 border border-white/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }

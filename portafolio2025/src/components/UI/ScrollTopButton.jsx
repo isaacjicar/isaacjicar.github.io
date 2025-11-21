@@ -1,4 +1,3 @@
-// src/components/UI/ScrollTopButton.jsx
 import { useEffect, useState } from "react";
 
 export default function ScrollTopButton() {
@@ -7,7 +6,7 @@ export default function ScrollTopButton() {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      setIsVisible(y > 300); // se muestra después de bajar 300px
+      setIsVisible(y > 300);
     };
 
     window.addEventListener("scroll", handleScroll);

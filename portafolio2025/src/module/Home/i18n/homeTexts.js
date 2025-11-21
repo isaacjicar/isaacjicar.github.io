@@ -1,4 +1,3 @@
-// src/module/Home/i18n/homeTexts.js
 export const homeTexts = {
   es: {
     overlayLabel: "Inicio",

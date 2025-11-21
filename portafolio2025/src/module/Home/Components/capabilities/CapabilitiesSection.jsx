@@ -1,8 +1,6 @@
-// CapabilitiesSection.jsx
 import Reveal from "@/components/UI/Reveal";
 import CapabilityCard from "./CapabilityCard";
 
-// 🔹 capacidades por idioma
 const capabilitiesByLang = {
   es: [
     {

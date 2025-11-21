@@ -1,4 +1,3 @@
-// src/module/About/Components/AboutSection.jsx
 import ToolboxGroup from "../components/ToolboxGroup";
 import SocialLinksSection from "@/shared/sections/SocialLinksSection";
 import Reveal from "@/components/UI/Reveal";
@@ -7,10 +6,10 @@ export default function AboutSection({ t }) {
   return (
     <section id="about" className="bg-baseDark text-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4">
-        {/* 1) CARD PRINCIPAL SOBRE MÍ */}
+
         <Reveal as="div" dur="700ms">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.25fr)] items-center rounded-[32px] bg-neutral/60 border border-white/10 p-8 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-            {/* Foto */}
+
             <div className="flex justify-center">
               <div className="overflow-hidden rounded-[28px] bg-baseDark aspect-[4/5] max-w-sm w-full border border-white/5">
                 <img
@@ -21,7 +20,7 @@ export default function AboutSection({ t }) {
               </div>
             </div>
 
-            {/* Texto */}
+   
             <div>
               <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-secondary">
                 {t.badge}
@@ -31,7 +30,7 @@ export default function AboutSection({ t }) {
                 👨‍💻 {t.title}
               </h2>
 
-              {/* párrafo 1 con las partes destacadas */}
+      
               <p className="mt-4 text-sm md:text-base leading-relaxed text-white/80">
                 {t.p1_part1}
                 <span className="font-semibold text-accent">{t.p1_tech1}</span>
@@ -42,17 +41,16 @@ export default function AboutSection({ t }) {
                 {t.p1_part4}
               </p>
 
-              {/* párrafo 2 */}
+
               <p className="mt-3 text-sm md:text-base leading-relaxed text-white/80">
                 {t.p2}
               </p>
 
-              {/* párrafo 3 */}
+
               <p className="mt-3 text-sm md:text-base leading-relaxed text-white/80">
                 {t.p3}
               </p>
 
-              {/* botón + idiomas */}
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a
                   href="/Ronald Isaac Jimenez Carballo_plano.pdf"
@@ -72,7 +70,7 @@ export default function AboutSection({ t }) {
           </div>
         </Reveal>
 
-        {/* 2) Redes sociales */}
+ 
         <Reveal as="div" dur="700ms" delay="120ms">
           <div className="mt-16">
             <SocialLinksSection
@@ -84,7 +82,7 @@ export default function AboutSection({ t }) {
           </div>
         </Reveal>
 
-        {/* 3) Toolbox / skills */}
+     
         <Reveal as="section" dur="700ms" delay="240ms" className="mt-20">
           <p className="eyebrow">{t.toolboxEyebrow}</p>
           <h3 className="section-title">{t.toolboxTitle}</h3>

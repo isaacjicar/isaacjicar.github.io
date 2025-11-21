@@ -2,7 +2,7 @@
 import { NavLink } from "react-router-dom";
 
 export default function NavBar({ lang, setLang, texts }) {
-  // pequeño seguro por si algo falla
+
   if (!texts) return null;
 
   const links = texts.nav.links;
@@ -12,7 +12,7 @@ export default function NavBar({ lang, setLang, texts }) {
     <div className="sticky top-0 z-50 backdrop-blur bg-base-100/70 border-b border-white/5">
       <div className="navbar mx-auto max-w-6xl px-4">
         <div className="navbar-start">
-          {/* Mobile */}
+  
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -38,7 +38,7 @@ export default function NavBar({ lang, setLang, texts }) {
             </ul>
           </div>
 
-          {/* Logo */}
+
           <NavLink
             to="/"
             className="btn btn-ghost text-xl font-bold tracking-wide"
@@ -48,7 +48,7 @@ export default function NavBar({ lang, setLang, texts }) {
           </NavLink>
         </div>
 
-        {/* Desktop */}
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2">
             {links.map((l) => (
@@ -71,7 +71,7 @@ export default function NavBar({ lang, setLang, texts }) {
           </ul>
         </div>
 
-        {/* CTA + selector idioma */}
+
         <div className="navbar-end flex items-center gap-3">
           <div className="flex gap-1">
             <button

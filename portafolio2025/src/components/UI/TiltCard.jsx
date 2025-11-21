@@ -5,15 +5,15 @@ export default function TiltCard({
   className = "",
   img,
   children,
-  // tamaño
-  aspect = "aspect-[4/5]",   // o pasa height="h-[460px]"
+
+  aspect = "aspect-[4/5]",   
   height,
-  // motion
+
   maxTilt = 12,
   scale = 1.03,
   glare = true,
   transitionMs = 420,
-  // reveal
+  
   reveal = true,
   delay = "0ms",
   dur = "700ms",

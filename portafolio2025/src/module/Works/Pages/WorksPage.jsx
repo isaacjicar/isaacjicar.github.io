@@ -1,30 +1,39 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import { useEffect } from "react";
+
 import PageIntroOverlay from "@/shared/UI/PageIntroOverlay";
+import ScrollTopButton from "@/components/UI/ScrollTopButton";
 import WorksHero from "../Components/hero/WorksHero";
 import WorksGrid from "../Components/hero/WorksGrid";
-import workImg from "@/assets/Works.png";
-import ScrollTopButton from "@/components/UI/ScrollTopButton";
+import { worksTexts } from "../i18n/worksTexts";
 
-
-export default function PageWorks() {
+export default function WorksPage() {
+  const { lang } = useOutletContext();         
   const [showIntro, setShowIntro] = useState(true);
 
+  const t = worksTexts[lang] ?? worksTexts.es; 
+ 
+  useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "auto" }); 
+    }, []);
   return (
-    <main className="relative min-h-dvh bg-[#05051a] text-white">
+    <main className="relative min-h-dvh bg-baseDark text-white">
       {showIntro && (
         <PageIntroOverlay
-          label="Proyectos"
+          label={lang === "es" ? "Proyectos" : "Projects"}
           theme="primary"
-          graphicSrc={workImg}
-          graphicVariant="fly"
-          stayDuration={800}
+          graphicVariant="orbit"
+          stayDuration={700}
           exitDuration={900}
           onDone={() => setShowIntro(false)}
         />
       )}
 
-      <WorksHero />
-      <WorksGrid />
+    
+      <WorksHero t={t} />
+      <WorksGrid t={t} lang={lang} />
+
       <ScrollTopButton />
     </main>
   );

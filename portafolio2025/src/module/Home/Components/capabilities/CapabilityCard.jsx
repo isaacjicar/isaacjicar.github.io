@@ -1,4 +1,3 @@
-// CapabilityCard.jsx
 export default function CapabilityCard({ icon, title, items = [] }) {
   return (
     <div className="card-feature">
