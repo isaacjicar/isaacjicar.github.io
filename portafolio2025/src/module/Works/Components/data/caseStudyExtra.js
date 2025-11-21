@@ -2,9 +2,9 @@
 import imagenInicio from "/inicioWallet.png";
 import imagenCupones from "/cuponesWallet.png";
 import imagenPerfil from "/perfilWallet.png";
-import imagenRegistroTarjetas from "/registroTWallet.png";
+import imagenAdmin from "/AdminWallet.png";
 import imagenRegistroUsuario from "/registroUWallet.png";
-import imagenRegistriCupones from "/resgistroCWallet.png"; // por si luego haces sección de cupones
+
 
 export const caseStudyExtraByLang = {
   es: {
@@ -17,7 +17,7 @@ La Billetera Digital CR nace de una necesidad real: reducir el uso de efectivo
 en comercios pequeños sin obligar a la persona usuaria a depender de tarjetas físicas.
 El proyecto se trabajó desde cero: levantamiento de requerimientos funcionales y no
 funcionales, diseño de arquitectura, modelo relacional, UI completa y desarrollo
-full-stack con Spring Boot en el backend y React en el frontend.
+full-stack con C## en el backend y HTLM,CSS,JS en el frontend.
 
 La interfaz utiliza tipografía Montserrat y una paleta basada en azul como color
 principal y un celeste más claro como color secundario, manteniendo una estética
@@ -28,13 +28,13 @@ limpia, moderna y consistente en todas las pantallas.
         "Diseño de arquitectura de la solución",
         "Modelo relacional y diseño de base de datos",
         "Diseño de interfaz de usuario (UI) con Montserrat y paleta azul",
-        "Desarrollo full-stack (Spring Boot + React)",
+        "Desarrollo full-stack (C## +  HTLM,CSS,JS)",
       ],
       deliverables: [
         "Diagrama de arquitectura de la plataforma",
         "Modelo relacional y scripts de base de datos",
-        "API REST en Spring Boot (login, recuperación, pagos, comisiones)",
-        "Frontend en React conectado a la API",
+        "API REST en C## (login, recuperación, pagos, comisiones)",
+        "Frontend en HTLM,CSS,JS conectado a la API",
         "Documentación funcional y técnica básica",
       ],
       sections: [
@@ -113,15 +113,13 @@ cálculo final del pago se realice automáticamente.
           body: `
 Además del flujo de usuario final, diseñé y desarrollé:
 
-- Formulario de registro de entidades (bancos/comercios) con datos de contacto,
-  ubicación en mapa y subida de documentos.
 - Panel de "Administración de solicitudes" donde el administrador ve cada
   entidad con su información, estado actual y botones para Aprobar o Rechazar.
 
 Al aprobar una entidad, se registra con su porcentaje de comisión y queda lista
 para participar en el flujo de pagos y cupones dentro de la billetera.
           `,
-          image: imagenRegistroTarjetas,
+          image: imagenAdmin,
         },
       ],
     },
@@ -136,8 +134,8 @@ para participar en el flujo de pagos y cupones dentro de la billetera.
 Billetera Digital CR was born from a real need: reducing cash usage in small
 businesses without forcing users to rely on physical cards. The project was
 built from scratch: functional and non-functional requirements, architecture
-design, relational data model, full UI and full-stack development with Spring Boot
-on the backend and React on the frontend.
+design, relational data model, full UI and full-stack development with C## 
+on the backend and HTLM,CSS,JS on the frontend.
 
 The interface uses Montserrat as the main typeface and a palette with a strong
 blue as primary color and a lighter blue as secondary one, keeping a clean and
@@ -148,13 +146,13 @@ modern look across all screens.
         "Solution architecture design",
         "Relational data model & database design",
         "UI design with Montserrat and blue color palette",
-        "Full-stack development (Spring Boot + React)",
+        "Full-stack development (C## +  HTLM,CSS,JS)",
       ],
       deliverables: [
         "System architecture diagram",
         "Relational model and DB scripts",
-        "Spring Boot REST API (login, recovery, payments, commissions)",
-        "React frontend fully connected to the API",
+        "C## REST API (login, recovery, payments, commissions)",
+        "HTLM,CSS,JS frontend fully connected to the API",
         "Basic functional and technical documentation",
       ],
       sections: [
@@ -233,15 +231,13 @@ amount is calculated automatically.
           body: `
 Besides the end-user flow, I also designed and developed:
 
-- An entity registration form (banks/merchants) with contact details, map-based
-  location and document uploads.
 - A "Requests Administration" panel where the admin can see each entity,
   its details, current status and Approve/Reject actions.
 
 Once approved, the entity is registered with its commission percentage and
 becomes available to participate in payments and coupons inside the wallet.
           `,
-          image: imagenRegistroTarjetas,
+          image: imagenAdmin,
         },
       ],
     },

@@ -2,17 +2,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
- * @typedef {Object} InViewOpts
- * @property {number|number[]} [threshold]   // 0..1
- * @property {string} [rootMargin]           // CSS margin (p.ej. "0px 0px -20% 0px")
- * @property {boolean} [once]                // true = se ejecuta 1 sola vez
- * @property {boolean} [replay]              // true = quita/pone clase al entrar/salir (default)
+  @typedef {Object} InViewOpts
+  @property {number|number[]} [threshold]  
+  @property {string} [rootMargin]          
+  @property {boolean} [once]               
+  @property {boolean} [replay]              
  */
 const defaultOpts = { threshold: 0.3, rootMargin: "0px 0px -10% 0px", once: false, replay: true };
 
 /**
- * Devuelve: refCallback + boolean inView
- * @param {InViewOpts} [opts]
+  @param {InViewOpts} [opts]
  */
 export function useInView(opts = {}) {
   const options = { ...defaultOpts, ...opts };

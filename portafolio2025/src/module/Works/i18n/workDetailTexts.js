@@ -11,7 +11,7 @@ export const workDetailTexts = {
     defaultRoleItem: "Desarrollo fullstack",
     defaultDeliverableItem: "Prototipo funcional",
 
-    backLink: "← Volver a proyectos",
+
   },
 
   en: {

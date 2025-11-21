@@ -78,7 +78,7 @@ export default function ProjectDetailPage() {
         </Reveal>
       ))}
 
-      {/* MÁS PROYECTOS (SUGERENCIAS) */}
+
       {suggestedProjects.length > 0 && (
         <Reveal
           as="section"
@@ -100,7 +100,7 @@ export default function ProjectDetailPage() {
   );
 }
 
-// ---------- SUBCOMPONENTES REUTILIZABLES ----------
+
 
 function ProjectHero({ project, extra, t, lang }) {
   const handleScrollToUx = () => {
