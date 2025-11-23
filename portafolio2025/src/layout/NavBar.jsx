@@ -1,105 +1,107 @@
+// src/layout/MainNavbar.jsx
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import LangSwitch from "./LangSwitch";
 
-import { NavLink } from "react-router-dom";
+export default function MainNavbar({ lang, setLang, texts }) {
+  const [isOpen, setIsOpen] = useState(false);
 
-export default function NavBar({ lang, setLang, texts }) {
 
-  if (!texts) return null;
-
-  const links = texts.nav.links;
-  const ctaLabel = texts.nav.cta;
+  const navLinks = texts?.nav?.links ?? [];
 
   return (
-    <div className="sticky top-0 z-50 backdrop-blur bg-base-100/70 border-b border-white/5">
-      <div className="navbar mx-auto max-w-6xl px-4">
-        <div className="navbar-start">
+    <header className="sticky top-0 z-40 bg-baseDark/95 border-b border-white/10 backdrop-blur-sm">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex h-16 items-center justify-between gap-4">
+   
+          <Link
+            to="/"
+            className="flex items-center gap-2 font-semibold tracking-[0.18em] uppercase text-xs md:text-sm"
+          >
+            <span className="text-primary">Isaac</span>
+            <span className="text-accent">Jiménez</span>
+          </Link>
+
   
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52"
-            >
-              {links.map((l) => (
-                <li key={l.to}>
+          <nav className="hidden md:flex items-center gap-6">
+            <ul className="flex items-center gap-4 text-xs md:text-sm text-white/80">
+              {navLinks.map((item) => (
+                <li key={item.to}>
                   <NavLink
-                    to={l.to}
+                    to={item.to}
                     className={({ isActive }) =>
-                      isActive ? "text-primary font-semibold" : ""
+                      "transition hover:text-accent " +
+                      (isActive ? "text-accent font-semibold" : "")
                     }
                   >
-                    {l.label}
+                    {item.label}
                   </NavLink>
                 </li>
               ))}
             </ul>
-          </div>
+
+            <LangSwitch lang={lang} setLang={setLang} />
 
 
-          <NavLink
-            to="/"
-            className="btn btn-ghost text-xl font-bold tracking-wide"
-          >
-            <span className="text-primary">Isaac</span>
-            <span className="text-accent">Jimenez</span>
-          </NavLink>
-        </div>
-
-
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-2">
-            {links.map((l) => (
-              <li key={l.to}>
-                <NavLink
-                  to={l.to}
-                  className={({ isActive }) =>
-                    [
-                      "px-3 py-2 rounded-xl transition-colors",
-                      isActive
-                        ? "text-primary border border-primary/40 bg-white/5"
-                        : "hover:text-secondary",
-                    ].join(" ")
-                  }
-                >
-                  {l.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-
-        <div className="navbar-end flex items-center gap-3">
-          <div className="flex gap-1">
-            <button
-              onClick={() => setLang("es")}
-              className={`rounded-full px-2 py-1 text-xs font-semibold border
-                ${lang === "es" ? "bg-white text-black" : "border-white/40 text-white/70"}`}
+            <Link
+              to="/contacto" 
+              className="btn-cta-main hidden lg:inline-flex"
             >
-              ES
-            </button>
+              {texts.nav.cta}
+            </Link>
+          </nav>
+
+          <div className="flex items-center gap-2 md:hidden">
+            <LangSwitch lang={lang} setLang={setLang} compact />
             <button
-              onClick={() => setLang("en")}
-              className={`rounded-full px-2 py-1 text-xs font-semibold border
-                ${lang === "en" ? "bg-white text-black" : "border-white/40 text-white/70"}`}
+              type="button"
+              onClick={() => setIsOpen((v) => !v)}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white"
             >
-              EN
+              <span className="sr-only">Toggle menu</span>
+              <div className="space-y-[3px]">
+                <span className="block h-[2px] w-5 bg-white rounded-full" />
+                <span className="block h-[2px] w-5 bg-white rounded-full" />
+                <span className="block h-[2px] w-5 bg-white rounded-full" />
+              </div>
             </button>
           </div>
-
-          <NavLink
-            to="/contacto"
-            className="btn btn-primary rounded-2xl px-5 normal-case"
-          >
-            {ctaLabel}
-          </NavLink>
         </div>
+
+
+        {isOpen && (
+          <div className="md:hidden pb-4 space-y-4">
+            <nav className="rounded-2xl bg-neutral/80 border border-white/10 p-4 space-y-4">
+              <ul className="space-y-2 text-sm text-white/90">
+                {navLinks.map((item) => (
+                  <li key={item.to}>
+                    <NavLink
+                      to={item.to}
+                      onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        "block rounded-lg px-3 py-2 transition " +
+                        (isActive
+                          ? "bg-white/10 text-accent"
+                          : "hover:bg-white/5")
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                to="/contacto" 
+                onClick={() => setIsOpen(false)}
+                className="btn-cta-main w-full justify-center text-xs"
+              >
+                {texts.nav.cta}
+              </Link>
+            </nav>
+          </div>
+        )}
       </div>
-
-      <div className="h-[2px] w-full bg-gradient-to-r from-primary via-secondary to-accent" />
-    </div>
+    </header>
   );
 }
