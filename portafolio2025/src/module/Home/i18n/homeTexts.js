@@ -7,7 +7,7 @@ export const homeTexts = {
     heroRoleTop: "Desarrollador",
     heroRoleBottom: "Full-Stack",
     heroDesc:
-      "Ingeniero con enfoque en Java/Spring Boot y React + Tailwind. Experiencia con MySQL, SQL Server, Oracle, PostgreSQL y MongoDB, CI/CD con Git y DaisyUI.",
+      "Ingeniero con enfoque en Java/Spring Boot/C##/.NET y React + Tailwind. Experiencia con MySQL, SQL Server, Oracle, PostgreSQL y MongoDB, CI/CD con Git y DaisyUI.",
     heroBtnProjects: "Ver proyectos",
     heroBtnAbout: "Sobre mí",
     stat1_l1: "proyectos",

@@ -3,7 +3,7 @@ import ScrollTopButton from "@/components/UI/ScrollTopButton";
 import Reveal from "@/components/UI/Reveal";
 import { projectsByLang } from "../data/projects";
 import { workDetailTexts } from "@/module/Works/i18n/workDetailTexts";
-import { caseStudyExtraByLang } from "../data/caseStudyExtra";
+import { caseStudyExtraByLang } from "@/module/Works/Components/data/caseStudy";
 import { useEffect } from "react";
 
 
@@ -59,10 +59,10 @@ export default function ProjectDetailPage() {
         <ProjectMainImage project={baseProject} />
       </Reveal>
 
-      {/* ANCLA PARA EL SCROLL SUAVE */}
+
       {extra?.sections?.length > 0 && <div id="ux-section" />}
 
-      {/* SECCIONES DETALLADAS */}
+ 
       {extra?.sections?.map((section, index) => (
         <Reveal
           key={section.id}
@@ -172,11 +172,13 @@ function ProjectHero({ project, extra, t, lang }) {
 }
 
 function ProjectMainImage({ project }) {
+  const heroImg = project.heroImg ?? project.img;
+
   return (
     <section className="mx-auto max-w-6xl px-4 pb-12">
       <div className="overflow-hidden rounded-3xl soft-shadow bg-neutral/80">
         <img
-          src={project.img}
+          src={heroImg}        
           alt={project.title}
           className="w-full h-auto object-cover"
         />
@@ -184,7 +186,6 @@ function ProjectMainImage({ project }) {
     </section>
   );
 }
-
 function ProjectSection({ section }) {
   return (
     <div className="grid gap-10 md:grid-cols-2 md:items-start">

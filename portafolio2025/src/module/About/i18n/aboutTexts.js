@@ -13,7 +13,7 @@ export const aboutTexts = {
     p1_part2: " y ",
     p1_tech2: "C# / .NET",
     p1_part3: " en el backend, y con ",
-    p1_tech3: "React + Vite + Tailwind CSS",
+    p1_tech3: "React + Vite + Tailwind CSS, html, css, js",
     p1_part4: " en el frontend.",
 
     p2:
@@ -53,7 +53,7 @@ export const aboutTexts = {
     p1_part2: " and ",
     p1_tech2: "C# / .NET",
     p1_part3: " on the backend, and with ",
-    p1_tech3: "React + Vite + Tailwind CSS",
+    p1_tech3: "React + Vite + Tailwind CSS, html, css, js",
     p1_part4: " on the frontend.",
 
     p2:

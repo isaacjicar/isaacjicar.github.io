@@ -1,12 +1,11 @@
-// src/module/Works/data/caseStudyExtra.js
-import imagenInicio from "/inicioWallet.png";
-import imagenCupones from "/cuponesWallet.png";
-import imagenPerfil from "/perfilWallet.png";
-import imagenAdmin from "/AdminWallet.png";
-import imagenRegistroUsuario from "/registroUWallet.png";
+import imagenInicio from "@/assets/Wallet/inicioWallet.png";
+import imagenCupones from "@/assets/Wallet/cuponesWallet.png";
+import imagenPerfil from "@/assets/Wallet/perfilWallet.png";
+import imagenAdmin from "@/assets/Wallet/AdminWallet.png";
+import imagenRegistroUsuario from "@/assets/Wallet/registroUWallet.png";
 
 
-export const caseStudyExtraByLang = {
+export const walletCaseStudy = {
   es: {
     wallet: {
       category: "Fintech · Pagos presenciales · UX",

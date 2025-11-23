@@ -18,7 +18,7 @@ export default function HomePage() {
   const t = homeTexts[lang];
 
     useEffect(() => {
-      window.scrollTo({ top: 0, behavior: "auto" }); // o "smooth" si lo quieres animado
+      window.scrollTo({ top: 0, behavior: "auto" }); 
     }, []);
 
   return (

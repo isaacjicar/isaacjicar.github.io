@@ -89,4 +89,14 @@
     @apply rounded-full border border-white/10 bg-white/5 px-2 py-1
            text-[10px] uppercase tracking-wide text-white/70;
   }
+
+   .section-header-split {
+    @apply mb-10 flex flex-col gap-3
+           md:flex-row md:items-end md:justify-between;
+  }
+
+  .cards-grid-3 {
+    @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3;
+  }
 }
+
