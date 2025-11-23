@@ -1,9 +1,8 @@
-
 export const contactTexts = {
   es: {
     overlayLabel: "Contacto",
 
-    heroEyebrow: "Mi CONTACTO",
+    heroEyebrow: "FULL CONTACT",
     heroTitle: "Hablemos de tu próximo proyecto",
     heroDesc:
       "Cuéntame qué necesitas y te respondo con ideas, tiempos y una propuesta clara para trabajar juntos.",
@@ -29,6 +28,13 @@ export const contactTexts = {
     formCheckboxText:
       "Acepto que la información enviada se use solo para contactarme sobre esta consulta y nada más.",
     formSubmit: "Enviar mensaje",
+
+
+    statusSuccess: "✅ ¡Gracias! Tu mensaje se envió correctamente.",
+    statusErrorGeneric: "❌ Hubo un problema al enviar el mensaje.",
+    statusNetworkError:
+      "❌ No se pudo conectar al servidor. Inténtalo de nuevo.",
+    statusSending: "Enviando...",
   },
 
   en: {
@@ -60,5 +66,12 @@ export const contactTexts = {
     formCheckboxText:
       "I agree that this information will only be used to contact me about this inquiry and nothing else.",
     formSubmit: "Send message",
+
+
+    statusSuccess: "✅ Thanks! Your message was sent successfully.",
+    statusErrorGeneric: "❌ There was a problem sending your message.",
+    statusNetworkError:
+      "❌ Could not reach the server. Please try again.",
+    statusSending: "Sending...",
   },
 };

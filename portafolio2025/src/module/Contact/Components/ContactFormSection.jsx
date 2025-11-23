@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useInView } from "@/shared/motion/useInView";
 
-
 const FORMSPREE_URL = "https://formspree.io/f/xldvqdor";
 
 export default function ContactFormSection({ t }) {
   const [ref, inView] = useInView({ threshold: 0.25, replay: true });
 
-  const [status, setStatus] = useState("idle");      
+  const [status, setStatus] = useState("idle"); 
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e) => {
@@ -17,7 +16,6 @@ export default function ContactFormSection({ t }) {
 
     const form = e.target;
     const data = new FormData(form);
-
 
     data.append("from_page", "Portafolio Contact Page");
 
@@ -32,20 +30,15 @@ export default function ContactFormSection({ t }) {
 
       if (res.ok) {
         setStatus("success");
-        form.reset(); 
+        form.reset();
       } else {
         setStatus("error");
-        const json = await res.json().catch(() => null);
-        if (json && json.errors && json.errors.length > 0) {
-          setErrorMsg(json.errors.map((e) => e.message).join(", "));
-        } else {
-          setErrorMsg("Ocurrió un error al enviar el mensaje.");
-        }
+        setErrorMsg(t.statusErrorGeneric);
       }
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setErrorMsg("No se pudo conectar al servidor. Inténtalo de nuevo.");
+      setErrorMsg(t.statusNetworkError);
     }
   };
 
@@ -65,16 +58,20 @@ export default function ContactFormSection({ t }) {
 
             <div className="space-y-1 text-sm text-white/75">
               <p>
-                <span className="font-semibold">{t.infoEmailLabel}:&nbsp;</span>
+                <span className="font-semibold">
+                  {t.infoEmailLabel}:&nbsp;
+                </span>
                 <a
                   href="mailto:isaacjiemmenez@gmail.com"
                   className="underline decoration-dotted"
                 >
-                  isaacjiemmenez@gmail.com
+                  isaacijiemmenez@gmail.com
                 </a>
               </p>
               <p>
-                <span className="font-semibold">{t.infoPhoneLabel}:&nbsp;</span>
+                <span className="font-semibold">
+                  {t.infoPhoneLabel}:&nbsp;
+                </span>
                 <a
                   href="https://wa.me/50663270092?"
                   className="underline decoration-dotted"
@@ -84,7 +81,6 @@ export default function ContactFormSection({ t }) {
               </p>
             </div>
           </div>
-
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid gap-4 md:grid-cols-2">
@@ -141,16 +137,16 @@ export default function ContactFormSection({ t }) {
               <span>{t.formCheckboxText}</span>
             </label>
 
-
+         
             {status === "success" && (
               <p className="text-xs md:text-sm text-emerald-400">
-                ✅ ¡Gracias! Tu mensaje se envió correctamente.
+                {t.statusSuccess}
               </p>
             )}
 
             {status === "error" && (
               <p className="text-xs md:text-sm text-red-400">
-                ❌ {errorMsg || "Hubo un problema al enviar el mensaje."}
+                {errorMsg || t.statusErrorGeneric}
               </p>
             )}
 
@@ -159,7 +155,7 @@ export default function ContactFormSection({ t }) {
               className="btn-cta-main"
               disabled={status === "sending"}
             >
-              {status === "sending" ? "Enviando..." : t.formSubmit}
+              {status === "sending" ? t.statusSending : t.formSubmit}
             </button>
           </form>
         </div>
