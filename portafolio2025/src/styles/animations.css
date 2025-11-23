@@ -28,6 +28,7 @@
       animation: shake-strong 0.7s ease-in-out both;
     }
   }
+  
 }
 
 
@@ -56,7 +57,7 @@
 }
 
 
-/* animations.css */
+
 
 @keyframes float-soft {
   0%, 100% {
@@ -67,7 +68,7 @@
   }
 }
 
-/* clase reutilizable */
+
 .float-soft {
   animation: float-soft 4.5s ease-in-out infinite;
 }
