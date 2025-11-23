@@ -5,7 +5,6 @@ import SiteLayout from '@/layout/SiteLayout'
 import PageContact from './module/Contact/pages/PageContact'
 import WorksPage from './module/Works/Pages/WorksPage'
 import AbuotPage from './module/About/pages/AboutPage';
-import PageServices from './module/Services/pages/PageServices'
 import ProjectDetailPage from './module/Works/Components/pages/ProjectDetailPage'
 
 
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="/contacto" element={<PageContact />} />
           <Route path="/works" element={<WorksPage />} />
            <Route path="/works/:projectId" element={<ProjectDetailPage />} />
-          <Route path="/servicios" element={<PageServices />} />
           <Route path="/about" element={<AbuotPage />} />
           </Route>
     </Routes>

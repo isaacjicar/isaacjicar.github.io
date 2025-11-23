@@ -4,15 +4,18 @@ import Reveal from "@/components/UI/Reveal";
 import { projectsByLang } from "../data/projects";
 import { workDetailTexts } from "@/module/Works/i18n/workDetailTexts";
 import { caseStudyExtraByLang } from "@/module/Works/Components/data/caseStudy";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 
 export default function ProjectDetailPage() {
   const { projectId } = useParams();
   const { lang } = useOutletContext();
 
+  const [lightboxImage, setLightboxImage] = useState(null);
+  const [lightboxTitle, setLightboxTitle] = useState("");
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" }); 
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, [projectId]);
 
   const t = workDetailTexts[lang] ?? workDetailTexts.es;
@@ -46,23 +49,15 @@ export default function ProjectDetailPage() {
   return (
     <main className="min-h-dvh bg-baseDark text-white">
       <Reveal>
-        <ProjectHero
-          project={baseProject}
-          extra={extra}
-          t={t}
-          lang={lang}
-        />
+        <ProjectHero project={baseProject} extra={extra} t={t} lang={lang} />
       </Reveal>
-
 
       <Reveal>
         <ProjectMainImage project={baseProject} />
       </Reveal>
 
-
       {extra?.sections?.length > 0 && <div id="ux-section" />}
 
- 
       {extra?.sections?.map((section, index) => (
         <Reveal
           key={section.id}
@@ -74,10 +69,15 @@ export default function ProjectDetailPage() {
             (index === 0 ? " min-h-[80vh] flex items-center" : "")
           }
         >
-          <ProjectSection section={section} />
+          <ProjectSection
+            section={section}
+            onImageClick={(img) => {
+              setLightboxImage(img);
+              setLightboxTitle(section.title);
+            }}
+          />
         </Reveal>
       ))}
-
 
       {suggestedProjects.length > 0 && (
         <Reveal
@@ -86,19 +86,45 @@ export default function ProjectDetailPage() {
           delay="120ms"
           className="mx-auto max-w-6xl px-4 py-16 border-t border-white/10"
         >
-          <MoreProjectsSection
-            projects={suggestedProjects}
-            t={t}
-          />
+          <MoreProjectsSection projects={suggestedProjects} t={t} />
         </Reveal>
       )}
 
+      {/* 🔍 LIGHTBOX FULLSCREEN */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 lightbox-backdrop"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div
+            className="relative max-w-5xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxImage(null)}
+              className="absolute -top-3 -right-3 z-10 rounded-full bg-white/90 text-xs md:text-sm font-semibold px-3 py-1 text-black shadow-lg hover:bg-white"
+            >
+              ✕ Cerrar
+            </button>
 
+            <div className="overflow-hidden rounded-3xl soft-shadow bg-neutral/90">
+              <img
+                src={lightboxImage}
+                alt={lightboxTitle}
+                className="w-full max-h-[80vh] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <ScrollTopButton />
     </main>
   );
 }
+
+
 
 
 
@@ -186,7 +212,7 @@ function ProjectMainImage({ project }) {
     </section>
   );
 }
-function ProjectSection({ section }) {
+function ProjectSection({ section, onImageClick }) {
   return (
     <div className="grid gap-10 md:grid-cols-2 md:items-start">
       <div>
@@ -198,7 +224,10 @@ function ProjectSection({ section }) {
       </div>
 
       {section.image && (
-        <div className="overflow-hidden rounded-3xl soft-shadow bg-neutral/80">
+        <div
+          className="overflow-hidden rounded-3xl soft-shadow bg-neutral/80 card-tilt-hover cursor-zoom-in"
+          onClick={() => onImageClick?.(section.image)}
+        >
           <img
             src={section.image}
             alt={section.title}
@@ -209,6 +238,7 @@ function ProjectSection({ section }) {
     </div>
   );
 }
+
 
 function MoreProjectsSection({ projects, t }) {
   return (

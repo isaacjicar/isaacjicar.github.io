@@ -56,6 +56,28 @@
   }
 }
 
+@layer utilities {
+  .card-tilt-hover {
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    transition:
+      transform 350ms cubic-bezier(.2,.7,.2,1),
+      box-shadow 350ms cubic-bezier(.2,.7,.2,1);
+    cursor: zoom-in;
+  }
+
+  .card-tilt-hover:hover {
+    transform: translateY(-8px) rotate3d(0.5, -0.4, 0, 6deg) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+  }
+
+  .lightbox-backdrop {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+  }
+}
+
 
 
 

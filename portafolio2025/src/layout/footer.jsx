@@ -1,5 +1,6 @@
-// Footer.jsx
+
 import Reveal from "@/components/UI/Reveal";
+import { Link } from "react-router-dom";
 
 export default function Footer({ texts }) {
   const year = new Date().getFullYear();
@@ -27,20 +28,21 @@ export default function Footer({ texts }) {
             {t.subtitle}
           </p>
 
-          <button
-            className="
-              mt-8 inline-flex items-center justify-center
-              rounded-full bg-[#4CB393] px-8 py-3
-              text-sm md:text-base font-semibold uppercase tracking-[0.18em]
-              text-[#0b1020]
-              shadow-[0_10px_0_rgba(0,0,0,0.35)]
-              transition
-              hover:translate-y-[2px] hover:shadow-[0_6px_0_rgba(0,0,0,0.35)]
-              focus:outline-none focus:ring-2 focus:ring-[#4C9FB3] focus:ring-offset-2 focus:ring-offset-[#4C6CB3]
-            "
-          >
-            {t.contactBtn}
-          </button>
+        <Link
+          to="/contacto"
+          className="
+            mt-8 inline-flex items-center justify-center
+            rounded-full bg-[#4CB393] px-8 py-3
+            text-sm md:text-base font-semibold uppercase tracking-[0.18em]
+            text-[#0b1020]
+            shadow-[0_10px_0_rgba(0,0,0,0.35)]
+            transition
+            hover:translate-y-[2px] hover:shadow-[0_6px_0_rgba(0,0,0,0.35)]
+            focus:outline-none focus:ring-2 focus:ring-[#4C9FB3] focus:ring-offset-2 focus:ring-offset-[#4C6CB3]
+          "
+        >
+          {t.contactBtn}
+        </Link>
         </Reveal>
 
         <Reveal
