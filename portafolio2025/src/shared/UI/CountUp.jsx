@@ -10,7 +10,7 @@ export default function CountUp({ to = 10, duration = 900 }) {
     const step = (t) => {
       if (!start) start = t;
       const p = Math.min(1, (t - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      const eased = 1 - Math.pow(1 - p, 3); 
       setVal(Math.round(to * eased));
       if (p < 1) raf = requestAnimationFrame(step);
     };
