@@ -1,4 +1,4 @@
-// IMPORTS DE LAS CAPTURAS DEL JUEGO (ajusta las rutas a tus archivos reales)
+
 import pokeProfileEdit from "@/assets/PokemonG/perfilEdit.png";
 import pokePassword from "@/assets/PokemonG/cambiarPassword.png";
 import pokeVerifyEmail from "@/assets/PokemonG/verificacionCorreo.png";
@@ -150,7 +150,7 @@ un Top 3 y Top 10 de los Pokémon que más utiliza cada usuario. Esta sección
 demuestra manejo de datos, consultas agregadas y diseño de interfaces
 orientadas a métricas.
           `,
-          // sin imagen, se puede dejar undefined
+   
         },
       ],
     },

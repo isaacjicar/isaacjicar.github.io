@@ -1,6 +1,8 @@
 import muebleriaFreelanceCard from "@/assets/MubleriaWeb/inicioRP.png";
 import muebleriaFreelanceHero from "@/assets/MubleriaWeb/inicioMW.png";
 import pokemonGameHero from "@/assets/PokemonG/batallaTurnoJugador.png";
+import walletAppHero from "@/assets/Wallet/inicioWallet.png";
+import sistemaFacturacion from "@/assets/MubleriaFacturacion/usuarios.png";
 
 const placeholderMuebleria =
   "https://images.pexels.com/photos/6964079/pexels-photo-6964079.jpeg";
@@ -19,7 +21,7 @@ export const projectsByLang = {
       title: "Mueblería JC · Plataforma de Servicios",
       desc: "Sitio para catálogo, cotizaciones personalizadas, contacto directo y gestión profesional de pedidos.",
       img: placeholderMuebleria,
-      heroImg: muebleriaFreelanceHero, 
+      heroImg: sistemaFacturacion, 
       tags: ["Fullstack", "Negocio real", "UI/UX"],
     },
       {
@@ -44,7 +46,7 @@ export const projectsByLang = {
       title: "Billetera Digital CR",
       desc: "Prototipo de billetera digital para pagos presenciales seguros, pensando en el contexto costarricense.",
       img: placeholderWallet,
-      heroImg: muebleriaFreelanceHero, 
+      heroImg: walletAppHero, 
       tags: ["Fintech", "Seguridad", "UX"],
     },
   ],
@@ -55,7 +57,7 @@ export const projectsByLang = {
       title: "Mueblería JC · Services Platform",
       desc: "Site for catalog, custom quotes, direct contact and professional order management.",
       img: placeholderMuebleria,
-      heroImg: muebleriaFreelanceHero, 
+      heroImg: sistemaFacturacion, 
       tags: ["Fullstack", "Real business", "UI/UX"],
     },
     {
@@ -79,7 +81,7 @@ export const projectsByLang = {
       title: "Digital Wallet CR",
       desc: "Digital wallet prototype for secure in-person payments in the Costa Rican context.",
       img: placeholderWallet,
-      heroImg: muebleriaFreelanceHero, 
+      heroImg: walletAppHero, 
       tags: ["Fintech", "Security", "UX"],
     },
   ],

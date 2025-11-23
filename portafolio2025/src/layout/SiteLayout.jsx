@@ -1,4 +1,4 @@
-// src/layout/SiteLayout.jsx
+
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "./NavBar";

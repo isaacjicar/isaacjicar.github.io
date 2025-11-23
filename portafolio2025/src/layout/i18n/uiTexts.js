@@ -6,7 +6,7 @@ export const uiTexts = {
         { to: "/about", label: "Sobre mí" },
         { to: "/works", label: "Proyectos" },
         { to: "/contacto", label: "Contacto" },
-        { to: "/servicios", label: "Servicios" },
+   
       ],
       cta: "Cotizar ahora",
     },
@@ -31,7 +31,7 @@ export const uiTexts = {
         { to: "/about", label: "About me" },
         { to: "/works", label: "Projects" },
         { to: "/contacto", label: "Contact" },
-        { to: "/servicios", label: "Services" },
+
       ],
       cta: "Get a quote",
     },

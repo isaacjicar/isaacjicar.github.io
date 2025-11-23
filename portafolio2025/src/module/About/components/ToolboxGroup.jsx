@@ -1,4 +1,4 @@
-// src/module/About/components/ToolboxGroup.jsx
+
 import Reveal from "@/components/UI/Reveal";
 
 export default function ToolboxGroup({

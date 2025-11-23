@@ -1,4 +1,4 @@
-// NavBar.jsx
+
 import { NavLink } from "react-router-dom";
 
 export default function NavBar({ lang, setLang, texts }) {
@@ -91,7 +91,7 @@ export default function NavBar({ lang, setLang, texts }) {
           </div>
 
           <NavLink
-            to="/contact"
+            to="/contacto"
             className="btn btn-primary rounded-2xl px-5 normal-case"
           >
             {ctaLabel}
