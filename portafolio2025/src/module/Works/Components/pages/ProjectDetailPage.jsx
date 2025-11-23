@@ -5,6 +5,7 @@ import { projectsByLang } from "../data/projects";
 import { workDetailTexts } from "@/module/Works/i18n/workDetailTexts";
 import { caseStudyExtraByLang } from "@/module/Works/Components/data/caseStudy";
 import { useEffect,useState } from "react";
+import ImageLightbox from "../projectDetail/ImageLightbox";
 
 
 export default function ProjectDetailPage() {
@@ -90,7 +91,7 @@ export default function ProjectDetailPage() {
         </Reveal>
       )}
 
-      {/* 🔍 LIGHTBOX FULLSCREEN */}
+ 
       {lightboxImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 lightbox-backdrop"
@@ -118,6 +119,12 @@ export default function ProjectDetailPage() {
           </div>
         </div>
       )}
+      
+      <ImageLightbox
+        src={lightboxImage}
+        title={lightboxTitle}
+        onClose={() => setLightboxImage(null)}
+      />
 
       <ScrollTopButton />
     </main>
