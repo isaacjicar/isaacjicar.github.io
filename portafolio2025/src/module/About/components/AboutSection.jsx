@@ -53,7 +53,7 @@ export default function AboutSection({ t }) {
 
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a
-                  href="/Ronald Isaac Jimenez Carballo_plano.pdf"
+                  href="/RonaldIsaac.pdf"
                   className="btn-cta-primary"
                 >
                   {t.resumeBtn}

@@ -62,7 +62,7 @@ export const aboutTexts = {
     p3:
       "I am currently studying Software Development Engineering at Universidad Cenfotec (2024 – present). Beyond the technical side, I highly value respect, clear communication, creativity and teamwork.",
 
-    resumeBtn: "Resume",
+    resumeBtn: "Summary",
     langNativeLabel: "Spanish:",
     langNativeValue: "Native",
     langEnLabel: "English:",
