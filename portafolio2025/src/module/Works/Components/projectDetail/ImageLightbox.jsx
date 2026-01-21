@@ -4,7 +4,7 @@ export default function ImageLightbox({ src, title, onClose }) {
 
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center lightbox-backdrop px-2">
-      {/* Botón cerrar */}
+
       <button
         type="button"
         onClick={onClose}

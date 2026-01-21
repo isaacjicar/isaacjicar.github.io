@@ -11,7 +11,8 @@ export const workDetailTexts = {
     defaultRoleItem: "Desarrollo fullstack",
     defaultDeliverableItem: "Prototipo funcional",
 
-
+    moreProjectsTitle: "Más proyectos que te pueden interesar",
+    viewAllProjects: "Ver todos los proyectos",
   },
 
   en: {
@@ -25,6 +26,9 @@ export const workDetailTexts = {
 
     defaultRoleItem: "Full-stack development",
     defaultDeliverableItem: "Functional prototype",
+
+    moreProjectsTitle: "More projects you may like",
+    viewAllProjects: "View all projects",
 
     backLink: "← Back to projects",
   },
