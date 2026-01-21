@@ -3,6 +3,7 @@ import muebleriaFreelanceHero from "@/assets/MubleriaWeb/inicioMW.png";
 import pokemonGameHero from "@/assets/PokemonG/batallaTurnoJugador.png";
 import walletAppHero from "@/assets/Wallet/inicioWallet.png";
 import sistemaFacturacion from "@/assets/MubleriaFacturacion/usuarios.png";
+import vehicleManagementImg from "@/assets/ApiVeiculo/loginUser.png";
 
 const placeholderMuebleria =
   "https://images.pexels.com/photos/6964079/pexels-photo-6964079.jpeg";
@@ -12,6 +13,10 @@ const placeholderWallet =
   "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg";
 const placeholderExtra =
   "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg";
+const placeholderVehicle =
+  "https://images.pexels.com/photos/16743656/pexels-photo-16743656.jpeg?cs=srgb&dl=pexels-lasanhasculture-16743656.jpg&fm=jpg";
+
+
 
 
 export const projectsByLang = {
@@ -49,6 +54,16 @@ export const projectsByLang = {
       heroImg: walletAppHero, 
       tags: ["Fintech", "Seguridad", "UX"],
     },
+    {
+    id: "vehicle-management-api-2025",
+    title: "Vehicle Management API",
+    desc: "Sistema para taller/flotas: clientes, vehículos y órdenes de servicio con CRUD, seguridad JWT por roles, reportes y dashboard web.",
+    img: placeholderVehicle,    
+    heroImg: vehicleManagementImg,  
+    tags: ["Spring Boot", "MySQL", "JWT", "React", "Reportes"],
+   },
+
+    
   ],
 
   en: [
@@ -84,5 +99,14 @@ export const projectsByLang = {
       heroImg: walletAppHero, 
       tags: ["Fintech", "Security", "UX"],
     },
+    {
+    id: "vehicle-management-api-2025",
+    title: "Vehicle Management API",
+    desc: "Workshop/fleet system: clients, vehicles and service orders with full CRUD, role-based JWT security, reporting and a web dashboard.",
+    img: placeholderVehicle,     
+    heroImg: vehicleManagementImg,  
+    tags: ["Spring Boot", "MySQL", "JWT", "React", "Reports"],
+    },
+
   ],
 };

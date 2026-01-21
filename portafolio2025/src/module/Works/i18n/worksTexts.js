@@ -1,7 +1,7 @@
 export const worksTexts = {
   es: {
     heroEyebrow: "Trabajos seleccionados",
-    heroDateTimeframe: "2023 — 2025",
+    heroDateTimeframe: "2024 — 2025",
     heroTitlePrefix: "Proyectos que nacen de",
     heroTitleHighlight: "necesidades reales",
     heroTitleSuffix: "",
@@ -16,7 +16,7 @@ export const worksTexts = {
   },
 
   en: {
-    heroEyebrow: "Selected work · 2023 — 2025",
+    heroEyebrow: "Selected work · 2024 — 2025",
     heroTitlePrefix: "Projects born from",
     heroTitleHighlight: "real-world needs",
     heroTitleSuffix: "",
